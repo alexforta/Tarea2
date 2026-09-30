@@ -7,13 +7,17 @@
 // TODO 5: contempla el caso de no haber seleccionado ninguna afición.
 // Nota: al imprimir texto enviado por el usuario, escápalo para HTML.
 
-<?php
 // EJERCICIO 03. Los datos llegan desde radioCheckbox.html por POST.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombre = trim((string) ($_POST['nombre'] ?? ''));
     $apellidos = trim((string) ($_POST['apellidos' ?? '']));
     $edad = (string) ($_POST['edad'] ?? '');
+    /**
+     * Puede guardar un numero o un booleano false.
+     * Si el usuario pone un campo vacio se vuelve null para que no de error.
+     * filter_var (..., FILTER_VALIDATE_FLOAT) => Coge el peso y comprueba si lo que le has pasado es un numero, si no lo es devuelve false.
+     */
     $peso = filter_var($_POST['peso'] ?? null, FILTER_VALIDATE_FLOAT);
     $sexo = (string) ($_POST['sexo'] ?? '');
     $estadoCivil = (string) ($_POST['estado-civil'] ?? '');
@@ -35,8 +39,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "otro"
     ];
 
+    //Cuenta cuantos caracteres tiene la variable nombre y se utiliza "UTF-8" para que incluya ñ y tildes
+    //Si es menor o igual a 20 caracteres entra
     if (mb_strlen($nombre, "UTF-8") <= 20) {
+        //Si apellidos es menor o igual a 20 caracteres entra
         if (mb_strlen($apellidos, "UTF-8") <= 20) {
+            /**
+             * htmlspecialchars => Convierte cualquier caracter especial en texto (seguridad)
+             * ucfirst => Pone en mayuscula el primer caracter de la palabra
+             * ucwords => Pone en mayuscula la primera letra de cada palabra de los apellidos
+             */
+            
             echo "<h1>" . htmlspecialchars(ucfirst($nombre), ENT_QUOTES, "UTF-8") . " " . htmlspecialchars(ucwords($apellidos), ENT_QUOTES, "UTF-8") . "</h1>";
         } else {
             echo "El apellido no puede tener más de 20 caracteres";
@@ -45,6 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "El nombre no puede tener más de 20 caracteres";
     }
 
+    /**
+     * Comprueba si el valor de edad figura en el array de edadesValidas, convierte el numero a string y va comparando
+     */
     if (in_array($edad, $edadesValidas)) {
         echo "<p>" . htmlspecialchars($edad, ENT_QUOTES, "UTF-8") . "</p>";
     } else {
