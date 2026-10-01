@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $altura = filter_var($_POST['altura'] ?? null, FILTER_VALIDATE_FLOAT);
     $peso = filter_var($_POST['peso'] ?? null, FILTER_VALIDATE_FLOAT);
     
-vdzbftb
 
 
     //Nombre
