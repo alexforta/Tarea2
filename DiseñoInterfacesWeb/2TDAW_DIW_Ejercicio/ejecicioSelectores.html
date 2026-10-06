@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impulso Creativo · Marketing, Diseño e IA</title>
+  <style>
+    /* el elemento raíz del documento (html) */
+    RELLENA_AQUI {
+      --color-fondo: #020617;
+      --color-fondo-suave: #050816;
+      --color-panel: #020617;
+      --color-principal: #6366f1;
+      --color-secundario: #f97316;
+      --color-acento: #22c55e;
+      --color-cian: #06b6d4;
+      --color-texto: #e5e7eb;
+      --color-texto-suave: #9ca3af;
+      --color-borde-suave: rgba(148, 163, 184, 0.4);
+      --color-peligro: #fb7185;
+      --radio-card: 1.5rem;
+      --blur-fondo: 18px;
+    }
+
+    /* todas las etiquetas del documento */
+    RELLENA_AQUI {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* la etiqueta html */
+    RELLENA_AQUI {
+      scroll-behavior: smooth;
+    }
+
+    /* el body y los encabezados h1, h2, h3 y p */
+    RELLENA_AQUI {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--color-texto);
+    }
+
+    /* el cuerpo de la página */
+    RELLENA_AQUI {
+      background:
+        radial-gradient(circle at 0% 0%, #1d2436 0, transparent 55%),
+        radial-gradient(circle at 100% 0%, #0f172a 0, transparent 55%),
+        radial-gradient(circle at 50% 120%, #1e293b 0, #020617 55%);
+      line-height: 1.6;
+    }
+
+    /* todos los enlaces */
+    RELLENA_AQUI {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* todas las listas desordenadas (ul) */
+    RELLENA_AQUI {
+      list-style: none;
+    }
+
+    /* todas las secciones (section) */
+    RELLENA_AQUI {
+      padding: 4.5rem 0;
+      position: relative;
+    }
+
+    /* el contenedor principal con class="contenedor" */
+    RELLENA_AQUI {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.6rem;
+    }
+
+    /* la cabecera (header) de la página */
+    RELLENA_AQUI {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(var(--blur-fondo));
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(79, 70, 229, 0.7);
+    }
+
+    /* el header principal con id="encabezado-principal" */
+    RELLENA_AQUI {
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    /* el bloque del encabezado con class="encabezado" */
+    RELLENA_AQUI {
+      padding: 0.8rem 0;
+    }
+
+    /* la fila interior del header con class="fila-encabezado" */
+    RELLENA_AQUI {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    /* el contenedor del logo con class="logo-agencia" */
+    RELLENA_AQUI {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    /* el círculo con las iniciales del logo (class="logo-icono") */
+    RELLENA_AQUI {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background:
+        conic-gradient(from 160deg, #22c55e, #06b6d4, #6366f1, #f97316, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #020617;
+      font-size: 0.85rem;
+      font-weight: 800;
+      box-shadow:
+        0 0 0 2px rgba(15, 23, 42, 1),
+        0 0 28px rgba(94, 234, 212, 0.9);
+    }
+
+    /* el contenedor del menú y botón (class="barra-navegacion") */
+    RELLENA_AQUI {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    /* la lista del menú principal (class="menu-principal") */
+    RELLENA_AQUI {
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    /* los enlaces dentro de nav que está dentro de .barra-navegacion */
+    RELLENA_AQUI {
+      color: var(--color-texto-suave);
+      position: relative;
+      padding-bottom: 0.15rem;
+      transition: color 0.18s ease, transform 0.18s ease;
+    }
+
+    /* el pseudo-elemento ::after de esos enlaces (la línea animada) */
+    RELLENA_AQUI {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.15rem;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--color-principal), var(--color-cian));
+      transition: width 0.18s ease;
+    }
+
+    /* los enlaces del menú cuando el ratón pasa por encima */
+    RELLENA_AQUI {
+      color: var(--color-texto);
+      transform: translateY(-1px);
+    }
+
+    /* el ::after de esos enlaces cuando están en hover (subrayado completo) */
+    RELLENA_AQUI {
+      width: 100%;
+    }
+
+    /* todos los elementos con class="boton" (estilo base de botón) */
+    RELLENA_AQUI {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 600;
+      gap: 0.5rem;
+      white-space: nowrap;
+      transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        background 0.16s ease,
+        border-color 0.16s ease,
+        color 0.16s ease;
+    }
+
+    /* el botón principal con class="boton-primario" */
+    RELLENA_AQUI {
+      background: radial-gradient(circle at 0 0, #22c55e 0, transparent 60%),
+                  linear-gradient(135deg, var(--color-principal), #ec4899);
+      color: #f9fafb;
+      box-shadow:
+        0 10px 30px rgba(79, 70, 229, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 1);
+    }
+
+    /* el botón principal cuando el ratón pasa por encima */
+    RELLENA_AQUI {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow:
+        0 16px 40px rgba(79, 70, 229, 0.95),
+        0 0 0 1px rgba(56, 189, 248, 0.8);
+    }
+
+    /* el botón secundario con class="boton-secundario" */
+    RELLENA_AQUI {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--color-texto);
+      border-color: rgba(55, 65, 81, 0.9);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.8);
+    }
+
+    /* el botón secundario en hover */
+    RELLENA_AQUI {
+      background: rgba(15, 23, 42, 1);
+      border-color: rgba(148, 163, 184, 0.9);
+      transform: translateY(-1px);
+    }
+
+    /* cualquier enlace mientras se hace clic (estado activo) */
+    RELLENA_AQUI {
+      transform: scale(0.98);
+    }
+
+    /* cualquier enlace cuando tiene el foco (por teclado, por ejemplo) */
+    RELLENA_AQUI {
+      outline: 2px solid rgba(129, 140, 248, 0.9);
+      outline-offset: 3px;
+    }
+
+    /* enlaces no visitados (se deja vacío para el ejercicio) */
+    RELLENA_AQUI {}
+
+    /* enlaces ya visitados (se deja vacío para el ejercicio) */
+    RELLENA_AQUI {}
+
+    /* la sección con id="inicio" */
+    RELLENA_AQUI {
+      padding-top: 5.3rem;
+    }
+
+    /* el .contenedor que está dentro de .seccion-inicio */
+    RELLENA_AQUI {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    /* el span con class="etiqueta-seccion" */
+    RELLENA_AQUI {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      background: rgba(22, 163, 74, 0.12);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-acento);
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* el ::before de .etiqueta-seccion (punto luminoso) */
+    RELLENA_AQUI {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--color-acento);
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.9);
+      margin-right: 0.45rem;
+      flex-shrink: 0;
+    }
+
+    /* el ::after de .etiqueta-seccion (texto "· IA & DATA") */
+    RELLENA_AQUI {
+      content: " · IA & DATA";
+      font-weight: 600;
+      color: var(--color-cian);
+      margin-left: 0.25rem;
+    }
+
+    /* el título principal del hero con class="titulo-principal" */
+    RELLENA_AQUI {
+      font-size: clamp(2.5rem, 4.6vw, 3.3rem);
+      letter-spacing: -0.04em;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    /* los span que están dentro del título principal */
+    RELLENA_AQUI {
+      background: linear-gradient(120deg, #22d3ee, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* el párrafo del hero con class="parrafo-hero" */
+    RELLENA_AQUI {
+      max-width: 34rem;
+      color: var(--color-texto-suave);
+      font-size: 0.98rem;
+      margin-bottom: 1rem;
+    }
+
+    /* la primera línea del párrafo .parrafo-hero */
+    RELLENA_AQUI {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    /* la primera letra del párrafo .parrafo-hero */
+    RELLENA_AQUI {
+      font-size: 1.7em;
+      font-weight: 700;
+      margin-right: 0.12rem;
+    }
+
+    /* el párrafo que tiene id="resumen-destacado" */
+    RELLENA_AQUI {
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    /* el elemento con id="palabra-clave" que está dentro de un párrafo */
+    RELLENA_AQUI {
+      color: var(--color-secundario);
+      font-weight: 700;
+    }
+
+    /* el primer párrafo que va justo después de .parrafo-hero */
+    RELLENA_AQUI {
+      font-size: 0.86rem;
+      color: var(--color-texto-suave);
+      margin-bottom: 1.6rem;
+    }
+
+    /* el contenedor de botones del hero con class="grupo-botones" */
+    RELLENA_AQUI {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.7rem;
+    }
+
+    /* la lista de beneficios con class="lista-beneficios" */
+    RELLENA_AQUI {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem 1.4rem;
+      font-size: 0.86rem;
+      color: var(--color-texto-suave);
+    }
+
+    /* los li que son hijos directos de .lista-beneficios */
+    RELLENA_AQUI {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    /* los elementos con class="icono-lista" (los puntos de color) */
+    RELLENA_AQUI {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #a855f7, #6366f1);
+      border: 1px solid rgba(129, 140, 248, 0.9);
+      box-shadow: 0 0 14px rgba(94, 234, 212, 0.7);
+    }
+
+    /* el primer li dentro de .lista-beneficios */
+    RELLENA_AQUI {
+      color: #f9fafb;
+      font-weight: 600;
+    }
+
+    /* el último li dentro de .lista-beneficios */
+    RELLENA_AQUI {
+      opacity: 0.92;
+    }
+
+    /* los li en posición par (2,4,6,...) dentro de .lista-beneficios */
+    RELLENA_AQUI {
+      text-decoration: underline dotted rgba(148, 163, 184, 0.7);
+    }
+
+    /* los li en posición impar (1,3,5,...) dentro de .lista-beneficios */
+    RELLENA_AQUI {}
+
+    /* la tarjeta de datos a la derecha del hero con class="panel-datos" */
+    RELLENA_AQUI {
+      border-radius: var(--radio-card);
+      padding: 1.4rem;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(248, 113, 113, 0.18), transparent 55%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 1);
+      font-size: 0.86rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* el ::before de .panel-datos (halo de luz) */
+    RELLENA_AQUI {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 0, rgba(94, 234, 212, 0.12), transparent 60%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    /* la cabecera de la tarjeta de datos (class="cabecera-panel") */
+    RELLENA_AQUI {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.05rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* la etiqueta que indica estado IA activa / modo piloto (class="etiqueta-estado") */
+    RELLENA_AQUI {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(94, 234, 212, 0.8);
+      color: #a5f3fc;
+      background: rgba(15, 23, 42, 0.9);
+      box-shadow: 0 0 16px rgba(45, 212, 191, 0.6);
+    }
+
+    /* el contenedor grid de los KPIs con class="rejilla-kpis" */
+    RELLENA_AQUI {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: 1rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* cada tarjeta KPI con class="kpi" */
+    RELLENA_AQUI {
+      border-radius: 1rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      padding: 0.7rem 0.75rem;
+    }
+
+    /* el texto pequeño dentro del KPI con class="kpi-etiqueta" */
+    RELLENA_AQUI {
+      font-size: 0.7rem;
+      color: var(--color-texto-suave);
+    }
+
+    /* el valor numérico del KPI con class="kpi-valor" */
+    RELLENA_AQUI {
+      margin-top: 0.2rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    /* valores KPI que además tienen class="positivo" */
+    RELLENA_AQUI {
+      color: var(--color-acento);
+    }
+
+    /* valores KPI que además tienen class="negativo" */
+    RELLENA_AQUI {
+      color: var(--color-peligro);
+    }
+
+    /* la fila de texto encima de la barra de progreso (class="etiqueta-barra") */
+    RELLENA_AQUI {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.74rem;
+      color: var(--color-texto-suave);
+      margin-top: 0.3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* la barra vacía con class="barra-progreso" */
+    RELLENA_AQUI {
+      margin-top: 0.35rem;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* la parte rellena de la barra con class="relleno-barra" */
+    RELLENA_AQUI {
+      position: absolute;
+      inset: 0;
+      width: 82%;
+      background: linear-gradient(90deg, #22c55e, #22d3ee, #a855f7);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.7);
+    }
+
+    /* la tarjeta de reseña/testimonio con class="tarjeta-resena" */
+    RELLENA_AQUI {
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 1rem;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* el texto en negrita dentro de la tarjeta de reseña */
+    RELLENA_AQUI {
+      color: #facc15;
+    }
+
+    /* el encabezado común de sección con class="cabecera-seccion" */
+    RELLENA_AQUI {
+      margin-bottom: 2.3rem;
+    }
+
+    /* el título de sección con class="titulo-seccion" */
+    RELLENA_AQUI {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* el texto introductorio de sección con class="texto-intro-seccion" */
+    RELLENA_AQUI {
+      max-width: 36rem;
+      color: var(--color-texto-suave);
+      font-size: 0.95rem;
+    }
+
+    /* la sección de servicios con class="seccion-servicios" */
+    RELLENA_AQUI {
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(234, 179, 8, 0.16), transparent 60%),
+        var(--color-fondo-suave);
+      border-top: 1px solid rgba(31, 41, 55, 0.8);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.8);
+    }
+
+    /* el grid de servicios con class="rejilla-servicios" */
+    RELLENA_AQUI {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    /* cada tarjeta de servicio con class="tarjeta-servicio" */
+    RELLENA_AQUI {
+      border-radius: 1.2rem;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid var(--color-borde-suave);
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      font-size: 0.86rem;
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
+    }
+
+    /* el ::before de cada tarjeta de servicio (brillo al hover) */
+    RELLENA_AQUI {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: radial-gradient(circle at 0 0, rgba(94, 234, 212, 0.16), transparent 55%);
+      transition: opacity 0.18s ease;
+      pointer-events: none;
+    }
+
+    /* el icono grande de cada servicio con class="icono-servicio" */
+    RELLENA_AQUI {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* el título de servicio con class="titulo-servicio" */
+    RELLENA_AQUI {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    /* el texto de descripción de servicio con class="descripcion-servicio" */
+    RELLENA_AQUI {
+      color: var(--color-texto-suave);
+    }
+
+    /* la parte inferior de la tarjeta de servicio con class="pie-servicio" */
+    RELLENA_AQUI {
+      margin-top: auto;
+      padding-top: 0.6rem;
+      border-top: 1px dashed rgba(75, 85, 99, 0.9);
+      font-size: 0.78rem;
+      color: var(--color-texto-suave);
+    }
+
+    /* las tarjetas de servicio al pasar el ratón por encima */
+    RELLENA_AQUI {
+      transform: translateY(-4px);
+      background: #020617;
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.95);
+      border-color: rgba(129, 140, 248, 0.95);
+    }
+
+    /* el ::before de las tarjetas de servicio cuando están en hover */
+    RELLENA_AQUI {
+      opacity: 1;
+    }
+
+    /* la etiqueta verde de IA con class="etiqueta-ia" */
+    RELLENA_AQUI {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.7);
+      color: var(--color-acento);
+    }
+
+    /* todos los párrafos y también el elemento con id="resumen-destacado" */
+    RELLENA_AQUI {
+      line-height: 1.7;
+    }
+
+    /* la sección de IA con class="seccion-ia" */
+    RELLENA_AQUI {
+      background:
+        radial-gradient(circle at 0 0, rgba(99, 102, 241, 0.2), transparent 60%),
+        var(--color-fondo);
+    }
+
+    /* el grid de IA con class="fila-ia" */
+    RELLENA_AQUI {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.7rem;
+      align-items: center;
+    }
+
+    /* todos los párrafos dentro de la sección de IA */
+    RELLENA_AQUI {
+      max-width: 38rem;
+    }
+
+    /* la lista de puntos de IA con class="lista-ia" */
+    RELLENA_AQUI {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.6rem;
+    }
+
+    /* cada elemento de esa lista con class="item-ia" */
+    RELLENA_AQUI {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.78rem 0.95rem;
+      border-radius: 1rem;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid var(--color-borde-suave);
+      font-size: 0.9rem;
+    }
+
+    /* el punto luminoso de cada item de IA con class="punto-ia" */
+    RELLENA_AQUI {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-principal);
+      box-shadow: 0 0 12px rgba(129, 140, 248, 0.9);
+      margin-top: 0.38rem;
+      flex-shrink: 0;
+    }
+
+    /* el texto final de la sección IA con class="nota-ia" */
+    RELLENA_AQUI {
+      margin-top: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--color-texto-suave);
+    }
+
+    /* la sección de proyectos con class="seccion-proyectos" */
+    RELLENA_AQUI {
+      background: radial-gradient(circle at 100% 0, rgba(236, 72, 153, 0.15), transparent 55%),
+                  #020617;
+    }
+
+    /* el grid de proyectos con class="lista-proyectos" */
+    RELLENA_AQUI {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    /* cada tarjeta de proyecto con class="item-proyecto" */
+    RELLENA_AQUI {
+      border-radius: 1.2rem;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid var(--color-borde-suave);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-size: 0.86rem;
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
+    }
+
+    /* la franja superior de cada proyecto con class="cabecera-proyecto" */
+    RELLENA_AQUI {
+      height: 92px;
+      background:
+        radial-gradient(circle at 0 0, rgba(94, 234, 212, 0.35), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(244, 114, 182, 0.35), transparent 60%),
+        linear-gradient(135deg, #020617, #020617);
+    }
+
+    /* el contenido de texto de cada proyecto con class="contenido-proyecto" */
+    RELLENA_AQUI {
+      padding: 0.95rem 1.05rem 1.05rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+    }
+
+    /* el título de cada proyecto con class="titulo-proyecto" */
+    RELLENA_AQUI {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    /* la etiqueta descriptiva del proyecto con class="etiqueta-proyecto" */
+    RELLENA_AQUI {
+      font-size: 0.8rem;
+      color: var(--color-texto-suave);
+    }
+
+    /* el dato de resultado del proyecto con class="dato-proyecto" */
+    RELLENA_AQUI {
+      margin-top: 0.35rem;
+      color: var(--color-acento);
+      font-size: 0.85rem;
+    }
+
+    /* cada item de proyecto cuando está en hover */
+    RELLENA_AQUI {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.95);
+      border-color: rgba(129, 140, 248, 0.95);
+      background: #020617;
+    }
+
+    /* cualquier .item-proyecto que venga inmediatamente después de otro .item-proyecto */
+    RELLENA_AQUI {
+      border-style: solid;
+    }
+
+    /* elementos con class="porcentaje" a los que se les añade el símbolo % en ::after */
+    RELLENA_AQUI {
+      content: "%";
+      margin-left: 0.1rem;
+    }
+
+    /* la sección de contacto con class="seccion-contacto" */
+    RELLENA_AQUI {
+      background: #020617;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    /* el bloque de contacto con id="bloque-contacto" */
+    RELLENA_AQUI {
+      border-radius: 1.6rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      background:
+        radial-gradient(circle at 0 0, rgba(129, 140, 248, 0.25), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.2), transparent 65%),
+        var(--color-panel);
+      padding: 1.4rem 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      box-shadow: 0 30px 70px rgba(15, 23, 42, 0.98);
+    }
+
+    /* el formulario de contacto con class="formulario-contacto" */
+    RELLENA_AQUI {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    /* cada campo del formulario con class="campo-formulario" */
+    RELLENA_AQUI {
+      display: flex;
+      flex-direction: column;
+      gap: 0.28rem;
+      font-size: 0.86rem;
+    }
+
+    /* todas las etiquetas de formulario <label> */
+    RELLENA_AQUI {
+      color: var(--color-texto-suave);
+    }
+
+    /* todos los input, select y textarea del formulario */
+    RELLENA_AQUI {
+      border-radius: 0.85rem;
+      border: 1px solid rgba(55, 65, 81, 1);
+      background: rgba(15, 23, 42, 0.97);
+      color: var(--color-texto);
+      font-size: 0.9rem;
+      padding: 0.65rem 0.8rem;
+      outline: none;
+      font-family: inherit;
+      resize: vertical;
+      transition:
+        border-color 0.16s ease,
+        box-shadow 0.16s ease,
+        background 0.16s ease;
+    }
+
+    /* los textarea del formulario (para que sean más altos) */
+    RELLENA_AQUI {
+      min-height: 120px;
+    }
+
+    /* input, select y textarea cuando tienen enfoque (focus) */
+    RELLENA_AQUI {
+      border-color: rgba(129, 140, 248, 1);
+      box-shadow:
+        0 0 0 1px rgba(129, 140, 248, 0.9),
+        0 0 35px rgba(59, 130, 246, 0.5);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    /* textos de ayuda pequeños bajo los campos con class="texto-ayuda" */
+    RELLENA_AQUI {
+      font-size: 0.75rem;
+      color: var(--color-texto-suave);
+    }
+
+    /* el bloque lateral de info de contacto con class="info-contacto" */
+    RELLENA_AQUI {
+      font-size: 0.86rem;
+      color: var(--color-texto-suave);
+    }
+
+    /* la lista de datos de contacto con class="lista-contacto" */
+    RELLENA_AQUI {
+      list-style: none;
+      margin-top: 0.95rem;
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    /* cada li dentro de .lista-contacto */
+    RELLENA_AQUI {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* el último span dentro de cada li de .lista-contacto (valor principal) */
+    RELLENA_AQUI {
+      color: var(--color-texto);
+    }
+
+    /* el pie de página con class="pie" */
+    RELLENA_AQUI {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.7rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--color-texto-suave);
+      background: #020617;
+    }
+
+    /* la fila interior del pie de página con class="fila-pie" */
+    RELLENA_AQUI {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* la lista de enlaces del pie de página con class="menu-pie" */
+    RELLENA_AQUI {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* los enlaces dentro de .menu-pie cuando están en hover */
+    RELLENA_AQUI {
+      color: var(--color-texto);
+    }
+
+    /* el estilo del texto seleccionado por el usuario (cualquier parte de la página) */
+    RELLENA_AQUI {
+      background: #a855f7;
+      color: #f9fafb;
+    }
+
+    /* los li que son hijos directos de .menu-principal (elementos del menú) */
+    RELLENA_AQUI {}
+
+    /* ==== MEDIA QUERIES ==== */
+
+    /* estilos para pantallas de hasta 960px de ancho */
+    @media (max-width: 960px) {
+      /* el .contenedor dentro de .seccion-inicio, la .fila-ia y el #bloque-contacto */
+      RELLENA_AQUI {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      /* el bloque de contacto con id="bloque-contacto" en pantallas medianas */
+      RELLENA_AQUI {
+        padding: 1.2rem 1.1rem;
+      }
+
+      /* el grid de servicios en pantallas medianas (2 columnas) */
+      RELLENA_AQUI {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      /* el grid de proyectos en pantallas medianas (2 columnas) */
+      RELLENA_AQUI {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* estilos para pantallas de hasta 720px de ancho (móvil) */
+    @media (max-width: 720px) {
+      /* el nav que está dentro de .barra-navegacion (ocultamos menú en móvil) */
+      RELLENA_AQUI {
+        display: none;
+      }
+
+      /* todas las secciones en móvil (menos padding vertical) */
+      RELLENA_AQUI {
+        padding: 3.6rem 0;
+      }
+
+      /* la rejilla de servicios y la lista de proyectos en móvil (1 columna) */
+      RELLENA_AQUI {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      /* el .contenedor en la sección de inicio en móvil (menos separación) */
+      RELLENA_AQUI {
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ENCABEZADO -->
+  <header id="encabezado-principal" class="encabezado">
+    <div class="contenedor fila-encabezado">
+      <div class="logo-agencia">
+        <div class="logo-icono">IC</div>
+        <span>Impulso Creativo</span>
+      </div>
+
+      <div class="barra-navegacion">
+        <nav>
+          <ul class="menu-principal">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#inteligencia-artificial">IA</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <a href="#contacto" class="boton boton-primario">
+          Agenda una llamada
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <!-- INICIO / HERO -->
+    <section id="inicio" class="seccion seccion-inicio">
+      <div class="contenedor">
+        <div>
+          <span class="etiqueta-seccion">Agencia de marketing y diseño</span>
+          <h1 class="titulo-principal">
+            Impulsamos tu marca con
+            <span>diseño, marketing e Inteligencia Artificial</span>
+          </h1>
+
+          <p class="parrafo-hero">
+            Diseñamos tu identidad visual, tu web y tus campañas para que cada clic
+            acerque a un nuevo cliente. La <span id="palabra-clave">IA</span> nos ayuda a optimizar,
+            automatizar y aprender en tiempo real.
+          </p>
+          <p id="resumen-destacado">
+            Trabajamos con marcas que quieren resultados medibles, sin perder
+            el lado humano y creativo de la comunicación.
+          </p>
+
+          <div class="grupo-botones">
+            <a href="#contacto" class="boton boton-primario">
+              Solicitar propuesta
+            </a>
+            <a href="#proyectos" class="boton boton-secundario">
+              Ver casos de éxito
+            </a>
+          </div>
+
+          <ul class="lista-beneficios">
+            <li><span class="icono-lista"></span>+120 proyectos lanzados</li>
+            <li><span class="icono-lista"></span>4x retorno medio en campañas</li>
+            <li><span class="icono-lista"></span>Implementaciones IA llave en mano</li>
+          </ul>
+        </div>
+
+        <aside class="panel-datos">
+          <div class="cabecera-panel">
+            <div>
+              <strong>Panel de crecimiento mensual</strong><br />
+              <span style="font-size: 0.75rem; color: #9ca3af;">
+                Datos simulados de un eCommerce de moda
+              </span>
+            </div>
+            <span class="etiqueta-estado">IA activa</span>
+          </div>
+
+          <div class="rejilla-kpis">
+            <div class="kpi">
+              <div class="kpi-etiqueta">Ingresos</div>
+              <div class="kpi-valor positivo porcentaje">148</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-etiqueta">Leads cualificados</div>
+              <div class="kpi-valor positivo porcentaje">210</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-etiqueta">Coste por lead</div>
+              <div class="kpi-valor negativo porcentaje">-32</div>
+            </div>
+          </div>
+
+          <div class="etiqueta-barra">
+            <span>Automatización del embudo</span>
+            <span>82%</span>
+          </div>
+          <div class="barra-progreso">
+            <div class="relleno-barra"></div>
+          </div>
+
+          <div class="tarjeta-resena">
+            <strong>“En tres meses duplicamos las demos agendadas.”</strong><br />
+            Dirección comercial · SaaS B2B
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="seccion seccion-servicios">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <h2 class="titulo-seccion">Servicios para hacer crecer tu marca</h2>
+          <p class="texto-intro-seccion">
+            Integramos diseño gráfico, diseño web, marketing digital e inteligencia artificial
+            para construir un sistema que atrae, convierte y fideliza clientes.
+          </p>
+        </div>
+
+        <div class="rejilla-servicios">
+          <article class="tarjeta-servicio" id="servicio-diseno-grafico">
+            <div class="icono-servicio">🎨</div>
+            <h3 class="titulo-servicio">Diseño gráfico & branding</h3>
+            <p class="descripcion-servicio">
+              Creamos identidades visuales sólidas, piezas para redes sociales, presentaciones
+              comerciales y campañas coherentes con tu propuesta de valor.
+            </p>
+            <p class="pie-servicio">
+              Entregamos logotipo, paleta de color, tipografías, plantillas y guía rápida de uso.
+            </p>
+          </article>
+
+          <article class="tarjeta-servicio" id="servicio-diseno-web">
+            <div class="icono-servicio">💻</div>
+            <h3 class="titulo-servicio">Diseño y desarrollo web</h3>
+            <p class="descripcion-servicio">
+              Diseñamos webs rápidas, modernas y orientadas a conversión: landings, sitios
+              corporativos y tiendas online conectadas a tu analítica.
+            </p>
+            <p class="pie-servicio">
+              Trabajamos con HTML, CSS, JS, WordPress, Webflow y Shopify.
+            </p>
+          </article>
+
+          <article class="tarjeta-servicio" id="servicio-marketing">
+            <div class="icono-servicio">📈</div>
+            <h3 class="titulo-servicio">Marketing y campañas</h3>
+            <p class="descripcion-servicio">
+              Campañas en Google, Meta, TikTok y email marketing para acompañar a tus clientes
+              desde el primer impacto hasta la recompra.
+            </p>
+            <p class="pie-servicio">
+              Incluye estrategia, creatividades, seguimiento y optimización continua.
+            </p>
+          </article>
+
+          <article class="tarjeta-servicio" id="servicio-ia">
+            <div class="icono-servicio">🤖</div>
+            <h3 class="titulo-servicio">Inteligencia Artificial aplicada</h3>
+            <p class="descripcion-servicio">
+              Asistentes conversacionales, automatización de contenido, segmentación inteligente
+              y modelos que detectan oportunidades de venta.
+            </p>
+            <p class="pie-servicio">
+              <span class="etiqueta-ia">
+                ● IA para marketing, ventas y atención al cliente
+              </span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTELIGENCIA ARTIFICIAL -->
+    <section id="inteligencia-artificial" class="seccion seccion-ia">
+      <div class="contenedor fila-ia">
+        <div>
+          <div class="cabecera-seccion">
+            <h2 class="titulo-seccion">Inteligencia Artificial que se entiende con tu equipo</h2>
+            <p class="texto-intro-seccion">
+              Más allá del hype: analizamos tus procesos y construimos soluciones de IA que
+              resuelven cuellos de botella en contenido, atención y análisis de datos.
+            </p>
+          </div>
+
+          <ul class="lista-ia">
+            <li class="item-ia">
+              <span class="punto-ia"></span>
+              <div>
+                <strong>Asistentes entrenados con tu documentación.</strong><br />
+                Responden dudas frecuentes, capturan datos relevantes y derivan los casos
+                complejos a tu equipo.
+              </div>
+            </li>
+            <li class="item-ia">
+              <span class="punto-ia"></span>
+              <div>
+                <strong>Automatización de contenido.</strong><br />
+                Calendarios, piezas para anuncios, variaciones de textos y contenidos para
+                email y redes, siempre con tu tono de marca.
+              </div>
+            </li>
+            <li class="item-ia">
+              <span class="punto-ia"></span>
+              <div>
+                <strong>Analítica predictiva.</strong><br />
+                Dashboards que detectan patrones de abandono, campañas ganadoras y clientes
+                con alta probabilidad de compra.
+              </div>
+            </li>
+          </ul>
+
+          <p class="nota-ia">
+            Empezamos con un <strong>sprint de 4 semanas</strong> para validar un caso de uso
+            con impacto medible y, a partir de ahí, iterar juntos.
+          </p>
+        </div>
+
+        <aside class="panel-datos">
+          <div class="cabecera-panel">
+            <div>
+              <strong>Embudo B2B con IA</strong><br />
+              <span style="font-size: 0.75rem; color: #9ca3af;">
+                Últimos 90 días · Datos simulados
+              </span>
+            </div>
+            <span class="etiqueta-estado">Modo piloto</span>
+          </div>
+
+          <div class="rejilla-kpis">
+            <div class="kpi">
+              <div class="kpi-etiqueta">Tiempo medio de respuesta</div>
+              <div class="kpi-valor negativo">-63%</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-etiqueta">Leads cualificados</div>
+              <div class="kpi-valor positivo">+148%</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-etiqueta">Reuniones agendadas</div>
+              <div class="kpi-valor positivo">+92%</div>
+            </div>
+          </div>
+
+          <p>
+            El asistente IA gestiona la mayoría de primeras consultas y recoge contexto antes
+            de que intervenga tu equipo comercial.
+          </p>
+
+          <div class="etiqueta-barra">
+            <span>Flujo automatizado</span>
+            <span>82%</span>
+          </div>
+          <div class="barra-progreso">
+            <div class="relleno-barra"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="seccion seccion-proyectos">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <h2 class="titulo-seccion">Resultados que se pueden medir</h2>
+          <p class="texto-intro-seccion">
+            Algunas historias recientes de clientes en eCommerce, SaaS y educación online.
+          </p>
+        </div>
+
+        <ul class="lista-proyectos">
+          <li class="item-proyecto">
+            <div class="cabecera-proyecto"></div>
+            <div class="contenido-proyecto">
+              <h3 class="titulo-proyecto">Tienda de moda sostenible</h3>
+              <p class="etiqueta-proyecto">Estrategia 360 · Social ads + email + IA</p>
+              <p class="dato-proyecto">
+                Ingresos +310% · ROAS 4.3 en 6 meses
+              </p>
+            </div>
+          </li>
+          <li class="item-proyecto">
+            <div class="cabecera-proyecto"></div>
+            <div class="contenido-proyecto">
+              <h3 class="titulo-proyecto">SaaS para recursos humanos</h3>
+              <p class="etiqueta-proyecto">Embudo full-funnel · Web + contenidos + outbound</p>
+              <p class="dato-proyecto">
+                3x más demos con el mismo presupuesto
+              </p>
+            </div>
+          </li>
+          <li class="item-proyecto">
+            <div class="cabecera-proyecto"></div>
+            <div class="contenido-proyecto">
+              <h3 class="titulo-proyecto">Escuela online</h3>
+              <p class="etiqueta-proyecto">Sistema evergreen · Webinar + email + chatbot</p>
+              <p class="dato-proyecto">
+                Asistencia +42% y ventas +27% por lanzamiento
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="seccion seccion-contacto">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <h2 class="titulo-seccion">Cuéntanos qué te gustaría conseguir</h2>
+          <p class="texto-intro-seccion">
+            Rellena el formulario y te responderemos con un encaje inicial, ideas de mejora
+            y una propuesta de siguiente paso.
+          </p>
+        </div>
+
+        <div id="bloque-contacto">
+          <form class="formulario-contacto">
+            <div class="campo-formulario">
+              <label for="nombre">Nombre y empresa</label>
+              <input id="nombre" type="text" placeholder="Ej. Laura · GreenMarket" />
+            </div>
+
+            <div class="campo-formulario">
+              <label for="correo">Correo electrónico</label>
+              <input id="correo" type="email" placeholder="tu@empresa.com" />
+            </div>
+
+            <div class="campo-formulario">
+              <label for="servicio">¿Qué necesitas principalmente?</label>
+              <select id="servicio">
+                <option value="">Selecciona una opción</option>
+                <option>Diseño gráfico / branding</option>
+                <option>Diseño web / nueva web</option>
+                <option>Gestión de campañas de marketing</option>
+                <option>Proyecto de Inteligencia Artificial</option>
+                <option>Mix de varios servicios</option>
+              </select>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="presupuesto">Rango de inversión mensual</label>
+              <select id="presupuesto">
+                <option value="">Prefiero comentarlo en la llamada</option>
+                <option>Hasta 1.000 €</option>
+                <option>1.000 € – 3.000 €</option>
+                <option>3.000 € – 8.000 €</option>
+                <option>+8.000 €</option>
+              </select>
+              <p class="texto-ayuda">
+                No es vinculante, solo nos orienta sobre qué plantearte.
+              </p>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="mensaje">Cuéntanos brevemente tu situación</label>
+              <textarea id="mensaje" placeholder="Ej. Queremos relanzar la marca, actualizar la web y automatizar parte de la captación de leads..."></textarea>
+            </div>
+
+            <button type="submit" class="boton boton-primario">
+              Enviar briefing
+            </button>
+            <p class="texto-ayuda">
+              También puedes escribirnos a <strong>hola@impulsocreativo.agency</strong>.
+            </p>
+          </form>
+
+          <aside class="info-contacto">
+            <strong>¿Encajamos con tu proyecto?</strong>
+            <p style="margin-top: 0.4rem;">
+              Colaboramos mejor con equipos que ya han validado su producto o servicio
+              y quieren escalar con estrategia, datos e IA.
+            </p>
+
+            <ul class="lista-contacto">
+              <li>
+                <span>Tiempo medio de arranque</span>
+                <span>3–4 semanas</span>
+              </li>
+              <li>
+                <span>Modelo de trabajo</span>
+                <span>Retainer o proyecto cerrado</span>
+              </li>
+              <li>
+                <span>Ubicación</span>
+                <span>100% remoto · ES / LATAM</span>
+              </li>
+              <li>
+                <span>Idiomas</span>
+                <span>Español · Inglés</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor fila-pie">
+      <p class="texto-pie">
+        © <span id="anio-actual"></span> Impulso Creativo. Marketing, diseño e IA.
+      </p>
+      <nav class="menu-pie">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Casos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("anio-actual").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
