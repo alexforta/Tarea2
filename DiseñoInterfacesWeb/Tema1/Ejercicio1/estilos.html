@@ -29,6 +29,12 @@
             justify-content: center;
             align-items: center;
             text-shadow: 0 0 10px black;
+            overflow: hidden;
+        }
+        div::before{
+            content: "+";
+            position: relative;
+            top: 100%;
         }
         #c1{
             background: url("https://picsum.photos/400") center center no-repeat;
@@ -41,7 +47,7 @@
 <body>
     <!-- #c$*9 -->
     
-    <div id="c1"><span>+</span></div>
+    <div id="c1"></div>
     <div id="c2"></div>
     <div id="c3"></div>
     <div id="c4"></div>
