@@ -4,82 +4,70 @@
     <body>
         <h1>Configura tu coche</h1>
         <form action="procesarConcesionario.php" method="POST">
+            
             <fieldset>
                 <legend>Modelo (obligatorio)</legend>
-                <label><input type="radio" name="Modelo[]" value="Compacto"
-                        required> Compacto</label>
-                <!-- TODO: añade Sedán y SUV con el mismo name. -->
-                <label><input type="radio" name="Modelo[]" value="Sedan"
-                        required> Sedan</label>
-                <label><input type="radio" name="Modelo[]" value="SUV"
-                        required> SUV</label>
+                <label><input type="radio" name="Modelo" value="Compacto" required> Compacto</label>
+                <label><input type="radio" name="Modelo" value="Sedán" required> Sedán</label>
+                <label><input type="radio" name="Modelo" value="SUV" required> SUV</label>
             </fieldset>
 
-            <!-- TODO: añade fieldsets con radios para Motor, Color, Llantas y Equipamiento. -->
             <fieldset>
                 <legend>Motor</legend>
-                <label for="motor">Gasolina 1.6L</label>
-                <input type="radio" name="motor" value="Gasolina 1.6L" />
-                <label for="motor">Diesel 2.0L</label>
-                <input type="radio" name="motor" value="Diesel 2.0L" />
-                <label for="motor">Eléctrico 75 kWh</label>
-                <input type="radio" name="motor" value="Eléctrico 75 kWh" />
+                <label><input type="radio" name="Motor" value="Gasolina 1.6L"> Gasolina 1.6L</label>
+                <label><input type="radio" name="Motor" value="Diesel 2.0L"> Diesel 2.0L</label>
+                <label><input type="radio" name="Motor" value="Eléctrico 75 kWh"> Eléctrico 75 kWh</label>
             </fieldset>
-                <br>
-                <!-- TODO: añade un fieldset de checkboxes name="Accesorios[]" con los ocho accesorios. -->
-                <fieldset>
-                    <legend>Color</legend>
-                    <label for="color">Blanco</label>
-                    <input type="radio" name="color" value="Blanco" />
-                    <label for="color">Negro</label>
-                    <input type="radio" name="color" value="Negro" />
-                    <label for="color">Azul Metálico</label>
-                    <input type="radio" name="color" value="Azul Metálico" />
-                    <label for="color">Rojo</label>
-                    <input type="radio" name="color" value="Rojo" />
-                </fieldset>
-                    <br>
-                <fieldset>
-                    <legend>Llantas</legend>
-                    <label for="llantas">Aleación 16</label>
-                    <input type="radio" name="llantas" value= '"16" Aleación'  />
-                    
-                    <label for="llantas">Aleación 18</label>
-                    <input type="radio" name="llantas" value='"18" Aleación' />
-                    
-                    <label for="llantas">Deportivo 20</label>
-                    <input type="radio" name="llantas" value='"20" Deportivo' />
-                    
-                </fieldset>
-                    <br>
-                <fieldset>
-                    <legend>Equipamiento</legend>
-                    <label for="equipamiento">Basico</label>
-                    <input type="radio" name="equipamiento" value= "Básico"  />
-                    <label for="equipamiento">Confort</label>
-                    <input type="radio" name="equipamiento" value= "Confort"  />
-                    <label for="equipamiento">Aleación 16</label>
-                    <input type="radio" name="equipamiento" value= "Premium"  />
-                </fieldset>
-                    <br>
-                    <fieldset>
-                        <legend>Accesorios</legend>
-                        <label><input type="checkbox" name="accesorios[]" value="Techo Panorámico"> Techo Panorámico</label>
-                        <label><input type="checkbox" name="accesorios[]" value="Asientos de Cuero"> Asientos de Cuero</label>
-                        <label><input type="checkbox" name="accesorios[]" value="Cámara de 360°"> Cámara de 360°</label>
-                        <label><input type="checkbox" name="accesorios[]" value="Paquete Deportivo"> Paquete Deportivo</label>
-                        <label><input type="checkbox" name="accesorios[]" value="Control de Crucero Adaptativo"> Control de Crucero Adaptativo</label>
-                        <label><input type="checkbox" name="accesorios[]" value="Sensores de Aparcamiento"> Sensores de Aparcamiento</label>
-                        <label><input type="checkbox" name="accesorios[]" value="Maletero Eléctrico"> Maletero Eléctrico</label>
-                    </fieldset>
-                        <br>
-                    <label>Cantidad (1–5): <input type="number" name="cantidad" min="1"
-                    max="5" value="1" required></label>
-                    <br>
-            <!-- TODO: añade el campo opcional de texto name="codigo_descuento". -->
-            <label for="codigo_descuento">Codigo Descuento</label>
+            <br>
+            
+            <fieldset>
+                <legend>Color</legend>
+                <label><input type="radio" name="Color" value="Blanco"> Blanco</label>
+                <label><input type="radio" name="Color" value="Negro"> Negro</label>
+                <label><input type="radio" name="Color" value="Azul Metálico"> Azul Metálico</label>
+                <label><input type="radio" name="Color" value="Rojo"> Rojo</label>
+            </fieldset>
+            <br>
+            
+            <fieldset>
+                <legend>Llantas</legend>
+                <label><input type="radio" name="Llantas" value='16" Aleación'> Aleación 16"</label>
+                <label><input type="radio" name="Llantas" value='18" Aleación'> Aleación 18"</label>
+                <label><input type="radio" name="Llantas" value='20" Deportivo'> Deportivo 20"</label>
+            </fieldset>
+            <br>
+            
+            <fieldset>
+                <legend>Equipamiento</legend>
+                <label><input type="radio" name="Equipamiento" value="Básico"> Básico</label>
+                <label><input type="radio" name="Equipamiento" value="Confort"> Confort</label>
+                <label><input type="radio" name="Equipamiento" value="Premium"> Premium</label>
+            </fieldset>
+            <br>
+            
+            <fieldset>
+                <legend>Accesorios</legend>
+                <label><input type="checkbox" name="accesorios[]" value="Techo Panorámico"> Techo Panorámico</label>
+                <label><input type="checkbox" name="accesorios[]" value="Asientos de Cuero"> Asientos de Cuero</label>
+                <label><input type="checkbox" name="accesorios[]" value="Sistema de Sonido Premium"> Sistema de Sonido Premium</label>
+                <label><input type="checkbox" name="accesorios[]" value="Cámara de 360°"> Cámara de 360°</label>
+                <label><input type="checkbox" name="accesorios[]" value="Paquete Deportivo"> Paquete Deportivo</label>
+                <label><input type="checkbox" name="accesorios[]" value="Control de Crucero Adaptativo"> Control de Crucero Adaptativo</label>
+                <label><input type="checkbox" name="accesorios[]" value="Sensores de Aparcamiento"> Sensores de Aparcamiento</label>
+                <label><input type="checkbox" name="accesorios[]" value="Maletero Eléctrico"> Maletero Eléctrico</label>
+            </fieldset>
+            <br>
+            
+            <label>Cantidad (1–5): 
+                <input type="number" name="cantidad" min="1" max="5" value="1" required>
+            </label>
+            <br><br>
+            
+            <label for="codigo_descuento">Código Descuento:</label>
             <input type="text" id="codigo_descuento" name="codigo_descuento" maxlength="20"/>
-            <br><button type="submit">Calcular precio</button>
+            <br><br>
+            
+            <button type="submit">Calcular precio</button>
         </form>
     </body>
 </html>

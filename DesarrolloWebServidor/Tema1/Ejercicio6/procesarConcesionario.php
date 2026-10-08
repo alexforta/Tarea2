@@ -12,24 +12,23 @@ require_once __DIR__ . '/componentes.php'; // Datos iniciales de opciones, preci
 
 echo 'Pendiente de implementar el ejercicio 06.';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $modelos = $_POST['Modelo'] ?? [];
+    $modelo = $_POST['Modelo'] ?? '';
+    $motor = $_POST['Motor'] ?? '';
+    $color = $_POST['Color'] ?? '';
+    $llantas = $_POST['Llantas'] ?? '';
+    $equipamiento = $_POST['Equipamiento'] ?? '';
 
-    if (
-        !is_array($modelos) ||
-        $modelos === []
-    ) {
-        exit('Selecciona al menos un modelo.');
-    }
+/**
+ * Si el valor es texto  y si existe como clave dentro del array $componentes
+ */
+if (is_string($modelo) && array_key_exists($modelo, $componentes['Modelo'])) {
+    echo("Todo correcto");
+} else {
+    echo("Selecciona algo");
 }
 
-foreach ($modelos as $modelo) {
-
-    if (
-        !is_string($modelo) ||
-        !array_key_exists($modelo)
-    ) {
-        exit('Se ha enviado una asignatura no válida.');
-    }
+$motorValido        = is_string($motor) && array_key_exists($motor, $componentes['Motor']);
+$colorValido        = is_string($color) && array_key_exists($color, $componentes['Color']);
+$llantasValidas     = is_string($llantas) && array_key_exists($llantas, $componentes['Llantas']);
+$equipamientoValido = is_string($equipamiento) && array_key_exists($equipamiento, $componentes['Equipamiento']);
 }
-
-$asignaturasMatriculadas = array_unique($asignaturasMatriculadas);
