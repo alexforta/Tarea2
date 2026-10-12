@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // TODO 2: recoge los accesorios seleccionados (pueden ser cero) y la cantidad (1–5).
     
     // Si no es un array y el numero de accesorios es menor que 0 da error
-    if (!is_array($accesorios) || count($accesorios) === 0) {
+    if (!is_array($accesorios) ) {
         exit('Debe seleccionar algo');
     }
 
