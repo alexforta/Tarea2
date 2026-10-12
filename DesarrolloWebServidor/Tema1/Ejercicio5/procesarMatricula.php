@@ -58,19 +58,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 
 $asignaturasMatriculadas = $_POST['asignaturas'] ?? [];
 
-if (
-    !is_array($asignaturasMatriculadas) ||
-    $asignaturasMatriculadas === []
-) {
+if (!is_array($asignaturasMatriculadas) || $asignaturasMatriculadas === []) {
     exit('Selecciona al menos una asignatura.');
 }
 
 foreach ($asignaturasMatriculadas as $asignatura) {
 
-    if (
-        !is_string($asignatura) ||
-        !array_key_exists($asignatura, $horario)
-    ) {
+    if (!is_string($asignatura) || !array_key_exists($asignatura, $horario)) {
         exit('Se ha enviado una asignatura no válida.');
     }
 }
