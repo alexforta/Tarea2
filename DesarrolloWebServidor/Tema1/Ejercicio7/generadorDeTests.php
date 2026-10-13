@@ -12,12 +12,30 @@ require_once __DIR__ . '/repositorioPreguntas.php';
 
 echo 'Pendiente de implementar la generación del ejercicio 07.';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     $asignatura = $_POST['asignatura'] ?? '';
-    $motor = $_POST['numeroPreguntas'] ?? '';
+    $numeroPreguntas = $_POST['numeroPreguntas'] ?? '';
 
-    if (is_string($asignatura) && array_key_exists($asignatura, $repositorioPreguntas['asignatura'])) {
-        echo ("Todo correcto");
-    } else {
-        echo ("Selecciona un modelo");
+    //Compruebo la asignatura
+    if ($asignatura === '' || !is_string($asignatura) ) {
+        exit ("Selecciona un modelo");
+    } 
+
+    //Si el numero de preguntas es menor 1 o mayor a 5 da error
+    if ($numeroPreguntas < 1 || $numeroPreguntas > 5) {
+        exit('Selecciona numero de preguntas valido');
     }
+
+    //Cogo de $repositorioPreguntas el array de la asignatura elegida
+    $preguntasDisponibles = $repositorioPreguntas[$asignatura];
+
+    //Devuelve las claves de $preguntasDisponibles sin las respuestas y ponemos la cantidad que queremos que coga
+    $claves = (array) array_rand($preguntasDisponibles, $numeroPreguntas);
+    foreach ($claves as $pregunta) {
+        echo('<br>');
+        echo htmlspecialchars($pregunta, ENT_QUOTES, 'UTF-8');
+    }
+
+    
+
 }

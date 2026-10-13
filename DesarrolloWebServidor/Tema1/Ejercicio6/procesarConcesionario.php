@@ -10,8 +10,14 @@ require_once __DIR__ . '/componentes.php'; // Datos iniciales de opciones, preci
 // TODO 6: genera un resumen con opciones, importes, descuentos, IVA y total.
 // Si el código de descuento no existe, indica que es inválido y no apliques rebaja.
 
+function mostrar($texto): string
+{
+    return htmlspecialchars((string) $texto, ENT_QUOTES, 'UTF-8');
+}
+
 echo 'Pendiente de implementar el ejercicio 06.';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $modelo = $_POST['Modelo'] ?? '';
     $motor = $_POST['Motor'] ?? '';
     $color = $_POST['Color'] ?? '';
@@ -21,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $accesorios = $_POST['Accesorios'] ?? [];
     $cantidad = $_POST['cantidad'] ?? '';
 
+    $seleccion = [];
     echo '<br>';
 
     /**
@@ -28,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      */
     if (is_string($modelo) && array_key_exists($modelo, $componentes['Modelo'])) {
         echo ("Todo correcto");
+        $precioModelo = $componentes['Modelo'][$modelo];
     } else {
         echo ("Selecciona un modelo");
     }
@@ -36,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (is_string($motor) && array_key_exists($motor, $componentes['Motor'])) {
         echo ("Todo correcto");
+        $precioMotor = $componentes['Motor'][$motor];
     } else {
         echo ("Selecciona un motor");
     }
@@ -44,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (is_string($color) && array_key_exists($color, $componentes['Color'])) {
         echo ("Todo correcto");
+        $precioColor = $componentes['Color'][$color];
     } else {
         echo ("Selecciona un color");
     }
@@ -52,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (is_string($llantas) && array_key_exists($llantas, $componentes['Llantas'])) {
         echo ("Todo correcto");
+        $precioLlantas = $componentes['Llantas'][$llantas];
     } else {
         echo ("Selecciona una llanta");
     }
@@ -59,14 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (is_string($equipamiento) && array_key_exists($equipamiento, $componentes['Equipamiento'])) {
         echo ("Todo correcto");
+        $precioEquipamiento = $componentes['Equipamiento'][$equipamiento];
     } else {
         echo ("Selecciona un equipamiento");
     }
-
-    $motorValido        = is_string($motor) && array_key_exists($motor, $componentes['Motor']);
-    $colorValido        = is_string($color) && array_key_exists($color, $componentes['Color']);
-    $llantasValidas     = is_string($llantas) && array_key_exists($llantas, $componentes['Llantas']);
-    $equipamientoValido = is_string($equipamiento) && array_key_exists($equipamiento, $componentes['Equipamiento']);
 
     echo '<br>';
 
@@ -91,4 +98,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit('Se ha enviado un accesorio no valido.');
         }
     }
+
+    //Mostrar todos los productos con su precio
+
+    echo '<!doctype html><html lang="es"><meta charset="utf-8"><title>Tu coche</title><body>';
+    echo '<h1>Resumen de tu coche personalizado</h1><ul>';
+    //Coger la pieza y buscar en el array la pieza que coincida y sacar su precio
+
+    echo '<li>' . mostrar('Modelo') . ': ' . mostrar($modelo) . ' — ' . $precioModelo . ' €</li>';
+    echo '<li>' . mostrar('Motor') . ': ' . mostrar($motor) . ' — ' . $precioMotor . ' €</li>';
+    echo '<li>' . mostrar('Color') . ': ' . mostrar($color) . ' — ' . $precioColor . ' €</li>';
+    echo '<li>' . mostrar('Llantas') . ': ' . mostrar($llantas) . ' — ' . $precioLlantas . ' €</li>';
+    echo '<li>' . mostrar('Equipamiento') . ': ' . mostrar($equipamiento) . ' — ' . $precioEquipamiento . ' €</li>';
+    echo '<li>' . mostrar('Equipamiento') . ': ' . mostrar($modelo) . ' — ' . $precioModelo . ' €</li>';
 }
