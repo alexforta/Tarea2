@@ -7,10 +7,17 @@
         <label for="asignatura">Asignatura:</label>
         <select id="asignatura" name="asignatura" required>
             <option value="matematicas">Matemáticas</option>
+            <option value="historia">Historia</option>
+            <option value="ciencias">Ciencias</option>
             <!-- TODO: incorpora Historia y Ciencias con los valores del repositorio. -->
         </select>
         <!-- TODO: añade numeroDePreguntas (entero entre 1 y 5). -->
-        <br><button type="submit">Generar test</button>
+         <br>
+            
+            <label>Numero de preguntas (1–5): 
+                <input type="number" name="numeroPreguntas" min="1" max="5" value="1" required>
+            </label>
+        <br><br><button type="submit">Generar test</button>
     </form>
 </body>
 </html>

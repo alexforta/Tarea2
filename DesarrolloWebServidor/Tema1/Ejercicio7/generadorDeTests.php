@@ -11,3 +11,13 @@ require_once __DIR__ . '/repositorioPreguntas.php';
 //          y qué preguntas se han mostrado, sin enviar al cliente las soluciones.
 
 echo 'Pendiente de implementar la generación del ejercicio 07.';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $asignatura = $_POST['asignatura'] ?? '';
+    $motor = $_POST['numeroPreguntas'] ?? '';
+
+    if (is_string($asignatura) && array_key_exists($asignatura, $repositorioPreguntas['asignatura'])) {
+        echo ("Todo correcto");
+    } else {
+        echo ("Selecciona un modelo");
+    }
+}
