@@ -69,11 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $equipamientoValido = is_string($equipamiento) && array_key_exists($equipamiento, $componentes['Equipamiento']);
 
     echo '<br>';
-    
+
     // TODO 2: recoge los accesorios seleccionados (pueden ser cero) y la cantidad (1–5).
-    
+
     // Si no es un array y el numero de accesorios es menor que 0 da error
-    if (!is_array($accesorios) ) {
+    if (!is_array($accesorios)) {
         exit('Debe seleccionar algo');
     }
 
@@ -86,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      * Por cada accesorio seleccionado comprueba si no es un string o si no existe en el array de Accesorios #componentes.php
      */
     foreach ($accesorios as $accesorio) {
+
         if (!is_string($accesorio) || !array_key_exists($accesorio, $componentes['Accesorios'])) {
             exit('Se ha enviado un accesorio no valido.');
         }
