@@ -10,7 +10,6 @@ require_once __DIR__ . '/repositorioPreguntas.php';
 // TODO 5: incorpora información suficiente para conocer qué asignatura
 //          y qué preguntas se han mostrado, sin enviar al cliente las soluciones.
 
-echo 'Pendiente de implementar la generación del ejercicio 07.';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $asignatura = $_POST['asignatura'] ?? '';
@@ -30,25 +29,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $preguntasDisponibles = $repositorioPreguntas[$asignatura];
     //Devuelve las claves de $preguntasDisponibles sin las respuestas y ponemos la cantidad que queremos que coga
     $claves = (array) array_rand($preguntasDisponibles, $numeroPreguntas);
+    //Guardo la pregunta con la respuesta
     $clavesConRespuesta=[];
-    
+    //Guarda la pregunta con la respuesta
     foreach ($claves as $clave) {
         $clavesConRespuesta[$clave] = $repositorioPreguntas[$asignatura][$clave];
-        print_r($clavesConRespuesta);
+    }
+
+    echo "<form action='comprobarTest.php' method='POST'>";
+    echo "<input type='hidden' name='asignatura' value='$asignatura'>";
+    /**
+     * Poner las preguntas 
+     * Recorrer las respuestas y ponerlas en un radio
+     */
+    $contador = 0;
+    foreach ($clavesConRespuesta as $pregunta => $respuestas) {
+        echo "<br>";
+        echo "$pregunta";
+        echo "<input type='hidden' name='preguntas[$contador]' value='" . htmlspecialchars($pregunta, ENT_QUOTES) . "'>";
+        foreach ($respuestas as $respuesta) {
+            echo"<br>";
+            echo "<label>";
+            echo "<input type='radio' name='respuestas[$contador]' value='" . htmlspecialchars($respuesta, ENT_QUOTES) . "' required> $respuesta";
+            echo "</label><br>";
+        }
+        $contador++;
     }
     
+    
+    echo "<br><button type='submit'>Comprobar test</button>";
+    echo "</form>";
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="generadorDeTests.php" method="POST">
-        
-    </form>
-</body>
-</html>

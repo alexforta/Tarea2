@@ -11,5 +11,11 @@ require_once __DIR__ . '/repositorioPreguntas.php';
 
 echo 'Pendiente de implementar la corrección del ejercicio 07.';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+    $asignatura = $_POST['asignatura'] ?? '';
+    $arrayPreguntas = $_POST['preguntas'] ?? [];
+    echo "<br>";
+    echo $asignatura;
+    echo "<br>";
+    print_r($arrayPreguntas);
+
 }
