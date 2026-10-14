@@ -1,0 +1,93 @@
+/* Definir valores  */
+:root{
+    --negro:black;
+    --morado:#6c5ce7;
+    --grisOscuro:#222;
+    --grisClaro: #666;
+    --crimson: crimson;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    transition: all .5s;
+    box-sizing: border-box;
+}
+
+body, html{
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+img{
+    max-width: 100%;
+
+}
+
+a{
+    text-decoration: none;
+
+}
+
+/* Menu de navegacion */
+header#header{
+    /* Modelo de caja */
+    max-width: 80%;
+    background-color: yellow;
+    margin: auto;
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    nav.menu{
+        a{
+            /* font-size, color */
+            color: var(--negro);
+            text-transform: uppercase;
+            font-weight: 900;
+            margin-left: 20px;
+            border-left: solid 3px;
+            margin: 0 5px;
+            padding: 0 20px;
+            &:first-child{
+                border: none;
+            }
+            &:hover {
+                color: var(--morado);
+                border-color: var(--negro);
+            }
+        }
+    }
+}
+
+/* BANNER */
+section#banner{
+    width: 100%;
+    min-height: 100vh;
+    background:url(../img/fondo.jpg)  no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    h1{
+        font-size: 5rem;
+        text-transform: uppercase;
+    }
+    p{
+        font-size: 1.5rem;
+        max-width: 80%;
+        margin: 20px 0;
+    }
+    a{
+        color: white;
+        background-color: var(--morado);
+        padding: 20px 50px;
+        text-transform: uppercase;
+        font-weight: 700;
+        &:hover{
+            color: var(--crimson);
+        }
+    }
+}
