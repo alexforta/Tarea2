@@ -13,9 +13,28 @@ echo 'Pendiente de implementar la corrección del ejercicio 07.';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $asignatura = $_POST['asignatura'] ?? '';
     $arrayPreguntas = $_POST['preguntas'] ?? [];
+    $arrayRespuestas = $_POST['respuestas'] ?? [];
     echo "<br>";
     echo $asignatura;
     echo "<br>";
     print_r($arrayPreguntas);
+    print_r($arrayRespuestas);
 
+    // Recorremos solo el array de las preguntas que le tocaron al alumno
+foreach ($arrayPreguntas as $indice => $pregunta) {
+    
+    // 1. Buscamos qué contestó el alumno a ESTA pregunta concreta (usando el $indice)
+    // Usamos ?? null por si el alumno dejó la pregunta en blanco
+    $respuestaDelAlumno = $arrayRespuestas[$indice] ?? null;
+    
+    // 2. Buscamos cuál es la solución oficial en nuestro repositorio
+    $solucionOficial = $repositorioRespuestas[$asignatura][$pregunta];
+    
+    // 3. Comparamos directamente
+    if ($respuestaDelAlumno === $solucionOficial) {
+        echo "<p>Pregunta: $pregunta -> <b>Bien hecho</b></p>";
+    } else {
+        echo "<p>Pregunta: $pregunta -> <b>Mal</b> (Era $solucionOficial)</p>";
+    }
+}
 }
