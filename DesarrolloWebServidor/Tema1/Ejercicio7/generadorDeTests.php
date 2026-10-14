@@ -4,7 +4,7 @@ require_once __DIR__ . '/repositorioPreguntas.php';
 // EJERCICIO 07 - PARTE A: GENERACIÓN.
 // TODO 1: exige POST y valida asignatura y numeroDePreguntas (entre 1 y 5).
 // TODO 2: elige al azar preguntas distintas del repositorio de esa asignatura.
-// TODO 3: genera un formulario HTML POST dirigido a comprobarTest.php.
+
 // TODO 4: incluye identificadores de preguntas y opciones de respuesta
 //          (radios) para que el corrector pueda cotejar las respuestas.
 // TODO 5: incorpora información suficiente para conocer qué asignatura
@@ -28,14 +28,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //Cogo de $repositorioPreguntas el array de la asignatura elegida
     $preguntasDisponibles = $repositorioPreguntas[$asignatura];
-
     //Devuelve las claves de $preguntasDisponibles sin las respuestas y ponemos la cantidad que queremos que coga
     $claves = (array) array_rand($preguntasDisponibles, $numeroPreguntas);
-    foreach ($claves as $pregunta) {
-        echo('<br>');
-        echo htmlspecialchars($pregunta, ENT_QUOTES, 'UTF-8');
-    }
-
+    $clavesConRespuesta=[];
     
-
+    foreach ($claves as $clave) {
+        $clavesConRespuesta[$clave] = $repositorioPreguntas[$asignatura][$clave];
+        print_r($clavesConRespuesta);
+    }
+    
 }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="generadorDeTests.php" method="POST">
+        
+    </form>
+</body>
+</html>
