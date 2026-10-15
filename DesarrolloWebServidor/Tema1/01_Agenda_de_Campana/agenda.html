@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Agenda electoral ficticia</title></head>
+<body>
+    <h1>Agenda electoral 2026 (simulación)</h1>
+    <p>Datos inventados con partidos reales. No son actos oficiales.</p>
+    <form action="filtrarAgenda.php" method="get">
+        <label for="provincia">Provincia:</label>
+        <select name="provincia" id="provincia">
+            <option value="Todas">Todas</option>
+            <option value="Granada">Granada</option>
+            <option value="Sevilla">Sevilla</option>
+            <option value="Málaga">Málaga</option>
+        </select>
+        <br>
+        <fieldset>
+            <legendfor="provincia">Partido:</legend>
+        <select id="partido" name="partido" required>
+            <option value="Todos">Todos</option>
+            <option value="PSOE">PSOE</option>
+            <option value="PP">PP</option>
+            <option value="Vox">Vox</option>
+            <option value="Sumar">Sumar</option>
+            <option value="Podemos">Podemos</option>
+        </select>
+        </fieldset>
+        <!-- TODO: selector partido: Todos, PSOE, PP, Vox, Sumar, Podemos -->
+        <!-- TODO: selector tipo: Todos, Mitin, Debate, Encuentro -->
+        <!-- TODO: límite numérico: name="limite", entre 1 y 10, valor inicial 5 -->
+        <button type="submit">Consultar agenda</button>
+    </form>
+</body>
+</html>

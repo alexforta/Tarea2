@@ -15,10 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $arrayPreguntas = $_POST['preguntas'] ?? [];
     $arrayRespuestas = $_POST['respuestas'] ?? [];
     echo "<br>";
-    // echo $asignatura;
-    // echo "<br>";
-    // print_r($arrayPreguntas);
-    // print_r($arrayRespuestas);
+    $contadorAciertos = 0;
 
     // Recorremos solo el array de las preguntas que le tocaron al alumno
 foreach ($arrayPreguntas as $indice => $pregunta) {
@@ -33,8 +30,12 @@ foreach ($arrayPreguntas as $indice => $pregunta) {
     // 3. Comparamos directamente
     if ($respuestaDelAlumno === $solucionOficial) {
         echo "<p>Pregunta: $pregunta -> <b>Bien hecho</b></p>";
+        $contadorAciertos++;
     } else {
         echo "<p>Pregunta: $pregunta -> <b>Mal</b> (Era $solucionOficial)</p>";
     }
-}
+    }
+    echo "El numero de aciertos es: $contadorAciertos";
+    echo "<br>";
+    echo "El numero de fallos es:" . count($arrayRespuestas) -$contadorAciertos ;
 }
