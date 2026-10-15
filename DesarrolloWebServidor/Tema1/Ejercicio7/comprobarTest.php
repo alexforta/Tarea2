@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $arrayPreguntas = $_POST['preguntas'] ?? [];
     $arrayRespuestas = $_POST['respuestas'] ?? [];
     echo "<br>";
-    echo $asignatura;
-    echo "<br>";
-    print_r($arrayPreguntas);
-    print_r($arrayRespuestas);
+    // echo $asignatura;
+    // echo "<br>";
+    // print_r($arrayPreguntas);
+    // print_r($arrayRespuestas);
 
     // Recorremos solo el array de las preguntas que le tocaron al alumno
 foreach ($arrayPreguntas as $indice => $pregunta) {

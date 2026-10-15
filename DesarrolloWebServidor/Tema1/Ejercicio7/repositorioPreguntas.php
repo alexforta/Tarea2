@@ -81,4 +81,4 @@ $repositorioRespuestas = [
 // TODO: crea aquí el mapa $repositorioRespuestas con las respuestas correctas
 // de todas las preguntas. Utiliza las mismas asignaturas y el mismo texto
 // de cada pregunta que en $repositorioPreguntas. La corrección lo utilizará.
-$repositorioRespuestas = [];
+
