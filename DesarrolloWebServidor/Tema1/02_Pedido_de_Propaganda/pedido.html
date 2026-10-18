@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>Pedido electoral</title></head>
+<body>
+<h1>Pedido de material de campaña (simulación)</h1>
+<form method="post" action="procesarPedido.php">
+    <label for="partido">Partido:</label>
+    <select id="partido" name="partido" required>
+        <option value="PSOE">PSOE</option><option value="PP">PP</option>
+        <option value="Vox">Vox</option><option value="Sumar">Sumar</option>
+        <option value="Podemos">Podemos</option>
+    </select>
+    <!-- TODO: radios obligatorios name="pack": basico, movil, completo -->
+    <!-- TODO: número entero name="unidades", mínimo 1 y máximo 8 -->
+    <!-- TODO: checkboxes name="extras[]": chapas, pegatinas, lanyards, folletos -->
+    <!-- TODO: radios obligatorios name="transporte": recogida, normal, urgente -->
+    <!-- TODO: campo de texto opcional name="codigo" (LOCAL2026 o VOLUNTARIADO) -->
+    <button type="submit">Calcular pedido</button>
+</form>
+</body></html>
