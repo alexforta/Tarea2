@@ -29,6 +29,11 @@ a{
 
 }
 
+h2{
+    font-size: 2rem;
+    color: var(--morado);
+}
+
 /* Menu de navegacion */
 header#header{
     /* Modelo de caja */
@@ -88,6 +93,83 @@ section#banner{
         font-weight: 700;
         &:hover{
             color: var(--crimson);
+        }
+    }
+}
+
+/* SEC SERVICIOS */
+section#servicios{
+    padding: 50px 0;
+    border-bottom: solid 1px var(--grisClaro);
+    div.arriba{
+        max-width: 60%;
+        text-align: center;
+        margin: auto;
+        
+        p{
+            margin: 20px 0;
+        }
+    }
+
+    div.abajo{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        article{
+            width: 20%;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-content: start;
+            align-items: end;
+            border: solid var(--morado) 1px;
+            padding: 20px;
+            img{
+                max-width: 100px;
+            }
+        }
+    }
+}
+
+/* SEC GALERIA */
+section#galeria{
+    min-height: 100vh;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    text-align: center;
+    h2{
+        width: 100%;
+        margin: 50px 0;
+    }
+    img{
+        margin: 20px 0;
+    }
+    p{
+        font-weight: 700;
+        color: var(--grisOscuro);
+    }
+    p+p{
+        font-weight: normal;
+        font-size: 1rem;
+        color: var(--negro);
+    }
+}
+
+/* FOOTER */
+footer#footer{
+    width: 100%;
+    padding: 100% 0;
+    background-color: var(--negro);
+    text-align: center;
+    a{
+        color: white;
+        margin: 0 20px;
+        font-size: 1.5rem;
+        &:hover{
+            color: var(--morado);
         }
     }
 }
