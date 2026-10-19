@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Escrutinio simulado</title>
+    <style>
+        label { display: block; margin-bottom: 8px; }
+        .seccion { margin-bottom: 15px; border: 1px solid #ccc; padding: 10px; max-width: 300px;}
+    </style>
+</head>
+<body>
+    <h1>Escrutinio municipal ficticio</h1>
+    <p>Introduce un recuento inventado. No son resultados oficiales.</p>
+    
+    <form method="post" action="procesarEscrutinio.php">
+        <div class="seccion">
+            <label>Censo total: 
+                <input type="number" name="censo" min="1" max="100000" required>
+            </label>
+        </div>
+
+        <div class="seccion">
+            <h3>Votos a candidaturas:</h3>
+            <!-- TODO resuelto: campos con name="votos[PARTIDO]" -->
+            <label>PSOE: <input type="number" name="votos[PSOE]" min="0" value="0" required></label>
+            <label>PP: <input type="number" name="votos[PP]" min="0" value="0" required></label>
+            <label>Vox: <input type="number" name="votos[Vox]" min="0" value="0" required></label>
+            <label>Sumar: <input type="number" name="votos[Sumar]" min="0" value="0" required></label>
+            <label>Podemos: <input type="number" name="votos[Podemos]" min="0" value="0" required></label>
+        </div>
+
+        <div class="seccion">
+            <h3>Otros votos:</h3>
+            <!-- TODO resuelto: campos name="blancos" y name="nulos", enteros >= 0 -->
+            <label>Blancos: <input type="number" name="blancos" min="0" value="0" required></label>
+<label>Nulos: <input type="number" name="nulos" min="0" value="0" required></label>
+        </div>
+        
+        <button type="submit">Calcular escrutinio</button>
+    </form>
+</body>
+</html>
