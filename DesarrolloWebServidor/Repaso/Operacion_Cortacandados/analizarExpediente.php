@@ -91,14 +91,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Comprobar si la pista es fiable o no.
         $valorFiable = $pistas[$pista]['fiable'];
 
-        // Si el usuario no respondió, guardar una cadena vacía.
+        // Guardar el valor de la pista, si el usuario no respondió, guardar una cadena vacía.
         $valorPistaMostrada = $decisiones[$pista] ?? '';
 
-        // Tu condición: investigar una pista fiable es correcto.
+        // Si el valor es fiable y pusiste investigar
         if ($valorFiable == true && $valorPistaMostrada == 'investigar') {
             $decisionesCorrectas++;
             $valorInvestigacion += $pistas[$pista]['valor'];
 
+            //
             if ($pista === 'gps') {
                 $avisoGPS = true;
             }
