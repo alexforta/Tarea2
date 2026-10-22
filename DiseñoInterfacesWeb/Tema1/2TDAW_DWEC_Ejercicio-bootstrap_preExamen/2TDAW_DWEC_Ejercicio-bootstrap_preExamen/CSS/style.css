@@ -1,0 +1,176 @@
+:root {
+    --negro: black;
+    --blanco: white;
+    --gris: #95a5a6;
+    --turquesa: turquoise;
+    --rojo: red;
+
+}
+
+body {
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+}
+
+h3::after {
+    content: "";
+    display: block;
+    margin: auto;
+    width: 50px;
+    height: 3px;
+    margin: 20px auto;
+    background-color: var(--rojo);
+}
+
+nav.navbar {
+    background-color: transparent;
+}
+
+
+header#header {
+    min-height: 100vh;
+    background: var(--turquesa) url(../img/cabecera.png) no-repeat center 100%;
+
+    nav a {
+        color: var(--blanco);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .container2 {
+        text-align: center;
+        min-height: 80vh;
+        align-content: center;
+
+        h1 {
+            font-size: 6rem;
+            font-weight: 100;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+}
+
+main#home {
+    background-color: var(--blanco);
+    color: var(--negro);
+
+    section#trabajos {
+        min-height: 70vh;
+        align-content: center;
+        text-align: center;
+
+        h3 {
+            text-transform: uppercase;
+        }
+        p{
+            color: var(--gris);
+        }
+        img {
+            width: 100%;
+        }
+    }
+
+    section#soporte {
+        width: 100%;
+        min-height: 50vh;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px;
+
+        .soporte-titulo {
+            text-align: center;
+            margin-bottom: 50px;
+
+            h3 {
+                margin: 0 0 10px 0;
+                font-size: 22px;
+                font-weight: 700;
+                color: #2c3e50;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+        }
+
+        .soporte-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px 30px;
+        }
+
+        .servicio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            text-align: left;
+
+            img {
+                width: 35px;
+                height: auto;
+                flex-shrink: 0;
+            }
+
+            h4 {
+                margin: 0 0 8px 0;
+                font-size: 14px;
+                font-weight: 700;
+                color: #2c3e50;
+                letter-spacing: 0.5px;
+            }
+
+            p {
+                margin: 0;
+                font-size: 13px;
+                line-height: 1.5;
+                color: var(--gris);
+            }
+        }
+    }
+
+    section#equipo {
+        min-height: 100vh;
+        align-content: center;
+        text-align: center;
+        
+
+        h3{
+            text-transform: uppercase;
+        }
+
+        div>img {
+            width: 100%;
+            min-height: 20vh;
+            margin-bottom: 15px;
+        }
+
+        div>h5 {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        div>p{
+            color: var(--gris);
+        }
+
+        div.row+div.row{
+            margin-bottom: 200px;
+            p{
+            color: var(--gris);
+            margin-bottom: 15px;
+            font-style: italic;
+            }
+        }
+    }
+}
+
+footer#footer{
+        min-height: 20vh;
+        align-content: center;
+        text-align: center;
+        background-color: var(--turquesa);
+    }

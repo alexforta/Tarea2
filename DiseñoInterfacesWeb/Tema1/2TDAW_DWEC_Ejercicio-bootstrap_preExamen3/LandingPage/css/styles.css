@@ -1,0 +1,34 @@
+:root {
+    --negro: black;
+    --blanco: white;
+    --gris: #95a5a6;
+    --turquesa: turquoise;
+    --rojo: red;
+
+}
+
+body {
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+}
+nav.navbar{
+    background-color: transparent;
+    
+}
+#header {
+    min-height: 100vh;
+    background: url(../images/desktop/image-header.jpg) no-repeat center 100%;
+
+    nav a {
+        color: black;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .container2 {
+        text-align: center;
+        min-height: 80vh;
+        align-content: center;
+
+    }
+}

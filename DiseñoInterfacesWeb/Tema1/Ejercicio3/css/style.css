@@ -45,3 +45,70 @@ header#header{
         }
     }
 }
+
+/* BANNER */
+section#banner{
+    width: 100%;
+    min-height: 100vh;
+    background:url(../img/fondo.jpg)  no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    h1{
+        font-size: 5rem;
+        text-transform: uppercase;
+    }
+    p{
+        font-size: 1.5rem;
+        max-width: 80%;
+        margin: 20px 0;
+    }
+    a{
+        color: white;
+        background-color: var(--morado);
+        padding: 20px 50px;
+        text-transform: uppercase;
+        font-weight: 700;
+        &:hover{
+            color: var(--crimson);
+        }
+    }
+}
+
+/* SEC SERVICIOS */
+section#servicios{
+    padding: 50px 0;
+    border-bottom: solid 1px var(--grisClaro);
+    div.arriba{
+        max-width: 60%;
+        text-align: center;
+        margin: auto;
+        
+        p{
+            margin: 20px 0;
+        }
+    }
+
+    div.abajo{
+        background-color: var(--morado);
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        article{
+            width: 20%;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-content: start;
+            align-items: end;
+            border: solid var(--morado) 1px;
+            padding: 20px;
+            img{
+                max-width: 100px;
+            }
+        }
+    }
+}
