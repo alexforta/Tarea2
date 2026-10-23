@@ -155,3 +155,68 @@ footer#footer{
         }
     }
 }
+/* Tablet */
+@media (max-width: 900px) {
+    header#header {
+        max-width: 90%;
+    }
+
+    section#servicios div.abajo {
+        padding: 60px 30px;
+    }
+
+    section#servicios div.abajo article {
+        width: 40%;
+    }
+
+    section#galeria .galeria-imagen {
+        width: 50%;
+        margin-left: 0;
+    }
+
+    section#galeria .galeria-texto {
+        width: 50%;
+    }
+}
+
+/* Movil */
+@media (max-width: 600px) {
+    header#header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    section#banner h1 {
+        font-size: 2.5rem;
+    }
+
+    section#servicios div.abajo {
+        padding: 40px 20px;
+    }
+
+    section#servicios div.abajo article {
+        width: 100%;
+    }
+
+    section#galeria {
+        flex-direction: column;
+    }
+
+    section#galeria .galeria-imagen,
+    section#galeria .galeria-texto {
+        width: 100%;
+    }
+
+    section#galeria .galeria-imagen {
+        margin-left: 0;
+    }
+
+    section#galeria img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    footer#footer {
+        text-align: center;
+    }
+}
