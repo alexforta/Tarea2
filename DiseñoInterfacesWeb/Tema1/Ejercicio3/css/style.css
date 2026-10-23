@@ -20,7 +20,7 @@ header#header{
     /* Modelo de caja */
     max-width: 80%;
     margin: auto;
-    padding: 50px 0;
+    padding: 30px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +32,7 @@ header#header{
             text-transform: uppercase;
             font-weight: 900;
             margin-left: 20px;
-            border-left: solid 3px;
+            /* border-left: solid 3px; */
             margin: 0 5px;
             padding: 0 20px;
             &:first-child{
@@ -83,6 +83,7 @@ section#servicios{
     padding: 50px 0;
     border-bottom: solid 1px var(--grisClaro);
     div.arriba{
+        padding: 5%;
         max-width: 60%;
         text-align: center;
         margin: auto;
@@ -93,22 +94,64 @@ section#servicios{
     }
 
     div.abajo{
-        background-color: var(--morado);
+        color: var(--blaco);
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 20px;
+        padding: 100px;
+        background-color: var(--azul);
+        h2{
+            text-align: center;
+            width: 100%;
+        }
         article{
-            width: 20%;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-content: start;
-            align-items: end;
-            border: solid var(--morado) 1px;
-            padding: 20px;
-            img{
-                max-width: 100px;
-            }
+            padding: 3%;
+        }
+    }
+
+}
+
+section#galeria{
+    display: flex;
+    padding: 5%;
+    
+    .galeria-imagen{
+        margin-left: 20%;
+    }
+    .galeria-texto{
+        width: 40%;
+        h2{
+            margin-bottom: 50px;
+        }
+        p{
+            margin-bottom: 40px;
+        }
+        a{
+        color: white;
+        background-color: var(--morado);
+        border-radius: 25px;
+        padding: 20px 50px;
+        text-transform: uppercase;
+        font-weight: 700;
+        &:hover{
+            color: var(--crimson);
+        }
+    }
+    }
+}
+/* FOOTER */
+footer#footer{
+    width: 100%;
+    padding: 2% 0;
+    background-color: black;
+    text-align: end;
+    a{
+        margin: 0 20px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        &:hover{
+            color: var(--morado);
         }
     }
 }
