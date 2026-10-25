@@ -17,7 +17,7 @@
 
         <!-- HEADER -->
         <header id="header">
-            <nav class="navbar sm:navbar-expand ">
+            <nav class="navbar sm:navbar-expand bg-white ">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
                         <img src="img/logo.png" alt>
@@ -37,12 +37,12 @@
                                 data-bs-dismiss="drawer"
                                 aria-label="Close"></button>
                         </div>
-                        <div class="drawer-body">
+                        <div class="drawer-body ">
                             <div class="nav navbar-nav ms-auto">
-                                <a class="nav-link" href="#">Home</a>
-                                <a class="nav-link" href="#">Portfolio</a>
-                                <a class="nav-link" href="#">Clientes</a>
-                                <a class="nav-link">Contacto</a>
+                                <a class="nav-link fg-black" href="#">Home</a>
+                                <a class="nav-link fg-black" href="#">Portfolio</a>
+                                <a class="nav-link fg-black" href="#">Clientes</a>
+                                <a class="nav-link fg-black">Contacto</a>
                             </div>
                         </div>
                     </dialog>
@@ -50,19 +50,82 @@
             </nav>
         </header>
 
-        <section id="banner" class="container-fluid">
-            <div class="row min-h-100>" >
-                <div class="md:col-6 mx-auto text-center">
+        <section id="banner" class="container-fluid ">
+            <div class="row align-items-center justify-content-center" >
+                <div class="md:col-6 text-center">
                     <h1>Lorem ipsum dolor sit.</h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                         Doloremque debitis, molestias iure alias placeat fugiat
                         recusandae, sunt dolorum autem cumque nisi eveniet enim
                         ad in impedit veritatis repudiandae? Cum, illum.</p>
-                        <a href="" >VER DETALLES</a>
+                        <a href=""  class="btn-solid btn-styled theme-accent">VER DETALLES</a>
                 </div>
             </div>
         </section>
 
+        <main id="home" class="bg-white">
+            <section id="servicios" >
+                <div class="arriba justify-content-center text-center mb-5 py-12">
+                    <h2 class="fg-black">Lorem ipsum dolor sit amet.</h2>
+                    <p class="fg-black">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Voluptatum quidem error iste modi velit ad. Reiciendis
+                        molestiae voluptates aliquid, asperiores placeat minima!
+                        Sapiente earum sed aspernatur quae reprehenderit, iusto
+                        a!</p>
+                </div>
+                <div class="abajo row justify-content-center g-4 text-center py-12 fg-black">
+                    <article class="col-12 md:col-3">
+                        <img src="img/icon1.png" alt>
+                        <h3 class="fg-black">lorem ipsum</h3>
+                        <p class="fg-black">Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Odio, corporis sed sunt nulla perferendis
+                            incidunt rem rerum sequi in itaque consequatur quam
+                            voluptas aperiam doloribus dolorum voluptatem enim a
+                            atque.</p>
+                    </article>
+                    <article class="col-12 md:col-3">
+                        <img src="img/icon2.png" alt>
+                        <h3>lorem ipsum</h3>
+                        <p>Minus blanditiis distinctio reprehenderit impedit id
+                            accusantium, tempora, quod voluptate quia aut non
+                            ipsa quisquam officiis, odit perferendis rerum enim
+                            excepturi! Quos nisi ipsam consectetur quia incidunt
+                            unde aut harum.</p>
+                    </article>
+                    <article class="col-12 md:col-3">
+                        <img src="img/icon3.png" alt>
+                        <h3>lorem ipsum</h3>
+                        <p>Soluta, quas consequatur. Rem consequuntur vitae
+                            facilis adipisci asperiores deserunt vero nesciunt
+                            iure fuga quam nostrum assumenda eaque consectetur
+                            dignissimos amet dolores id tempore cumque, eos
+                            eveniet aspernatur. Cumque, rem!</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="galeria" class="row g-4 text-center fg-black bg-white my-10">
+                <h2>Lorem ipsum dolor sit amet.</h2>
+                <div class="md:col-6 my-10">
+                    <img src="img/foto1.jpg" alt>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <p>Lorem, ipsum.</p>
+                </div>
+                <div class="md:col-6">
+                    <img src="img/foto2.jpg" alt>
+                    <p>Nostrum unde quibusdam voluptatum laborum, enim
+                        nobis.</p>
+                    <p>Praesentium, vel.</p>
+                </div>
+            </section>
+        </main>
+        <footer id="footer" class=" container my-12">
+            <div class="d-flex justify-content-center">
+                <a href="" class="mx-1">Instagram</a>
+                <a href="" class="mx-1">Twitter</a>
+                <a href="" class="mx-1">Facebook</a>
+            </div>
+        </footer>
         <script type="module"
             src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
