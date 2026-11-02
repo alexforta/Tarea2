@@ -1,0 +1,250 @@
+/* =====================================================================
+   EXAMEN (3 horas) · Landing "Nómada Coworking"
+   Archivo para completar: css/estilos.css
+   ---------------------------------------------------------------------
+   REGLA: Bootstrap 6 SOLO para:
+     - Rejilla: container, row, g-*, col-*, y sus prefijos sm: md: lg: xl: 2xl:
+     - Navbar: navbar, navbar-expand (md:navbar-expand), navbar-brand,
+               navbar-toggler, navbar-toggler-icon, navbar-nav, nav-item,
+               nav-link, collapse
+   Todo lo demás (colores, botones, tarjetas, iconos, textos, espaciados,
+   imágenes, pie) se escribe aquí con CSS puro y tus propias clases.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. VARIABLES DE COLOR (completa los valores)
+   --------------------------------------------------------------------- */
+:root {
+   --color-principal: #1F6F5C;
+   /* TODO:   (botones, etiqueta del hero) */
+   --color-acento: #F4A261;
+   /* TODO:   (títulos del pie, iconos de contacto) */
+   --color-oscuro: #14213D;
+   /* TODO:   (títulos) */
+   --color-fondo-suave: #F7F5F0;
+   /* TODO:   (secciones alternas, fondo de iconos) */
+   --color-texto: #2B2D42;
+   /* TODO:   (texto general) */
+   --color-texto-suave: #5C6378;
+   /* TODO:  (texto secundario) */
+   --color-blanco: #FFFFFF;
+   /* TODO:  */
+}
+
+/* ---------------------------------------------------------------------
+   2. TIPOGRAFÍA (ya configurada; no hay que modificarla)
+   Las fuentes Poppins (títulos) e Inter (texto) se cargan en el <head>
+   del index.html desde Google Fonts.
+   --------------------------------------------------------------------- */
+:root {
+   --fuente-titulos: 'Poppins', sans-serif;
+   --fuente-texto: 'Inter', sans-serif;
+}
+
+body {
+   font-family: var(--fuente-texto);
+   font-size: 1rem;
+   line-height: 1.6;
+   background-color: var(--color-blanco);
+}
+
+h1,
+h2,
+h3,
+h4 {
+   font-family: var(--fuente-titulos);
+   font-weight: 600;
+   line-height: 1.2;
+}
+
+h1 {
+   font-weight: 700;
+}
+
+/* ---------------------------------------------------------------------
+   3. GENERAL
+   TODO: color del body (--color-texto) y fondo blanco; títulos (h1-h4)
+   con --color-oscuro; imágenes responsive; listas sin viñetas ni padding.
+   --------------------------------------------------------------------- */
+*{
+   /* background-color: var(--color-blanco); */
+   color: var(--color-texto);
+}
+/* ---------------------------------------------------------------------
+   4. CABECERA (navbar)
+   TODO: fondo blanco, sombra suave y fija arriba (position: sticky).
+   Logotipo de 40 px de alto. Enlaces en negrita, color oscuro y cambio
+   de color al pasar el ratón.
+   Móvil: logotipo a la izquierda y hamburguesa a la derecha; el menú
+   (#menu) se abre al pulsar. Escritorio (≥ 768 px, md): menú en una línea
+   y sin hamburguesa.
+   Pista: Bootstrap pone "block-size: 0" en .collapse cerrado; en
+   escritorio hay que anularlo.
+   --------------------------------------------------------------------- */
+header {
+   /* background-color: var(--color-fondo-suave); */
+   max-width: 80%;
+   margin: auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   .nav-header {
+      display: flex;
+      width: 100%;
+
+      .boton {
+         margin-left: auto;
+      }
+      @media screen and (width>950px) {
+         .boton{
+            display: none;
+         }
+      }
+      @media screen and (width<950px) {
+         #menu{
+            display: none;
+         }
+      }
+
+      #menu {
+         margin-left: auto;
+      }
+
+      #menu ul {
+         display: flex;
+         gap: 12px;
+         /* text-decoration: none; */
+         list-style: none;
+
+         a {
+            text-decoration: none;
+            /* background-color: red; */
+            
+         }
+      }
+   }
+}
+
+
+/* ---------------------------------------------------------------------
+   5. BOTONES Y ETIQUETAS
+   TODO: botón redondeado (border-radius: 999px) con tres variantes:
+     - principal: fondo --color-principal y texto blanco
+     - contorno: fondo transparente y borde del color principal
+   Efecto hover: el botón sube 2 px (transform).
+   Etiqueta del hero: mayúsculas, color principal, letter-spacing.
+   --------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------
+   6. HERO
+   TODO: padding vertical; título con clamp(2.2rem, 5vw, 3.6rem);
+   texto destacado más grande y en color suave; imagen con bordes
+   redondeados (1.25rem) y sombra; botones separados con gap.
+   --------------------------------------------------------------------- */
+
+#inicio {
+   padding: 40px;
+   h1{
+      /* background-color: black; */
+      font-size: 60px;
+   }
+   img {
+      width: 100vh;
+      border-radius: 11px;
+   }
+   .hero-links{
+      margin-top: 30px;
+   }
+   a{
+      text-decoration: none;
+      border: 3px var(--color-principal) solid;
+      padding: 17px;
+      /* margin-top: 50px; */
+      border-radius: 30px;
+
+
+   }
+
+}
+
+#espacios {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 40px 30px;
+
+   .jornada {
+      img {
+         width: 50vh;
+      }
+   }
+}
+
+#ventajas{
+   background-color: var(--color-fondo-suave);
+   height: 50vh;
+   
+   h2{
+      /* background-color: red; */
+      text-align: center;
+      
+
+   }
+   .ventajas-contenedor{
+      background-color: var(--color-blanco);
+      /* border: 1px black solid; */
+      padding: 30px;
+      border-radius: 20px;
+      img{
+         background-color: var(--color-fondo-suave);
+         border-radius: 8px;
+         padding: 8px;
+         width:  50px;
+      }
+      h3{
+         /* background-color: red; */
+         padding-top: 13px;
+      }
+   }
+}
+
+/* ---------------------------------------------------------------------
+   7. SECCIONES
+   TODO: padding vertical; fondo alterno con --color-fondo-suave;
+   título de sección centrado; descripción centrada en color suave.
+   --------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------
+   8. TARJETAS (cards con CSS puro)
+   TODO: fondo blanco, bordes redondeados (1rem), sombra suave,
+   padding y altura 100% para que todas midan lo mismo en la fila.
+   Iconos de ventajas: dentro de un cuadrado redondeado con fondo suave.
+   Tarjetas de espacios: imagen arriba sin padding (220 px de alto,
+   object-fit: cover) y cuerpo con título y texto. Hover: sube y la
+   sombra crece.
+   --------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------
+   9. PLANES
+   TODO: tres tarjetas iguales con el contenido centrado: nombre del plan,
+   precio grande con "/mes" pequeño, una frase y el botón abajo.
+   El plan Pro solo cambia el botón (relleno en lugar de contorno).
+   --------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------
+   10. PIE
+   TODO: fondo oscuro (#0C1424); logotipo sobre fondo blanco
+   redondeado; contacto con iconos alineados; títulos de columna en
+   --color-acento; enlaces sin subrayado; línea de copyright separada
+   por un borde.
+   --------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------
+   11. RESPONSIVE (ajustes propios)
+   Corte del diseño: md (768px). Por debajo, diseño móvil; desde md, escritorio.
+   Breakpoints de Bootstrap 6: sm ≥ 576px · md ≥ 768px · lg ≥ 1024px
+   · xl ≥ 1280px · 2xl ≥ 1536px.
+   TODO: en móvil (menos de 768 px), botones del hero a todo el ancho y
+   títulos algo más pequeños.
+   --------------------------------------------------------------------- */
