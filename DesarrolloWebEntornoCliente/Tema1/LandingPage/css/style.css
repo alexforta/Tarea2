@@ -1,0 +1,130 @@
+:root {
+    --negro: black;
+    --blanco: white;
+    --gris: #95a5a6;
+    --turquesa: turquoise;
+    --rojo: red;
+
+}
+
+body {
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--blanco);
+}
+
+h3::after {
+    content: "";
+    display: block;
+    margin: auto;
+    width: 50px;
+    height: 3px;
+    margin: 20px auto;
+    background-color: var(--rojo);
+}
+
+h1,
+p,
+h3 {
+    color: var(--negro);
+}
+
+nav.navbar {
+    background-color: transparent;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+header {
+    background: url(../images/desktop/image-header.jpg) no-repeat center center / cover;
+    height: 100vh;
+    color: var(--blanco);
+
+    a {
+        color: var(--blanco);
+    }
+
+    .container {
+        /* background-color: var(--rojo); */
+        min-height: 80vh;
+
+        /* align-content: center; */
+        text-align: center;
+
+        h1 {
+            color: var(--blanco);
+        }
+    }
+
+    .imagen {
+        display: inline;
+        /* background-color: aqua; */
+        background-color: var(--rojo);
+        height: 50vh;
+        /* align-items: center; */
+        /* justify-content: center; */
+        align-content: end;
+    }
+}
+.imagen-copa {
+    position: relative; /* Referencia para colocar el texto */
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    .texto-imagen {
+        position: absolute; /* Coloca el texto sobre la imagen */
+        bottom: 30px;       /* Lo separa del borde inferior */
+        left: 0;
+        width: 100%;
+        padding: 0 30px;
+        text-align: center;
+    }
+}
+.huevo{
+    @media (max-width: 767px) {
+        .imagen-huevo{
+            order: -1;
+        }
+    }
+}
+.copa {
+    @media (max-width: 767px) {
+        #home #soporte .soporte-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+}
+
+.clientes {
+
+    /* background-color: var(--rojo); */
+    div {
+        /* background-color: violet; */
+        text-align: center;
+
+    }
+
+    img {
+        margin: auto;
+
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+    }
+}
+
+.imagenes {
+    @media (max-width: 767px) {
+        .row > div {
+            width: 50%;
+        }
+    }
+
+}

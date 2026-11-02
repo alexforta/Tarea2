@@ -66,10 +66,11 @@ h1 {
    TODO: color del body (--color-texto) y fondo blanco; títulos (h1-h4)
    con --color-oscuro; imágenes responsive; listas sin viñetas ni padding.
    --------------------------------------------------------------------- */
-*{
+* {
    /* background-color: var(--color-blanco); */
    color: var(--color-texto);
 }
+
 /* ---------------------------------------------------------------------
    4. CABECERA (navbar)
    TODO: fondo blanco, sombra suave y fija arriba (position: sticky).
@@ -83,6 +84,7 @@ h1 {
    --------------------------------------------------------------------- */
 header {
    /* background-color: var(--color-fondo-suave); */
+   /* background-color: red; */
    max-width: 80%;
    margin: auto;
    display: flex;
@@ -91,24 +93,21 @@ header {
 
    .nav-header {
       display: flex;
+      align-items: center;
       width: 100%;
 
+      a{
+         padding-left: 3%;
+      }
       .boton {
          margin-left: auto;
       }
-      @media screen and (width>950px) {
-         .boton{
-            display: none;
-         }
-      }
-      @media screen and (width<950px) {
-         #menu{
-            display: none;
-         }
-      }
+
+
 
       #menu {
          margin-left: auto;
+         margin-right: 1%;
       }
 
       #menu ul {
@@ -120,12 +119,35 @@ header {
          a {
             text-decoration: none;
             /* background-color: red; */
-            
+
          }
       }
    }
 }
+@media screen and (width>950px) {
+         .boton {
+            display: none;
+         }
 
+         header {
+            max-width: 100%;
+         }
+      }
+
+      @media screen and (width<950px) {
+         header{
+            max-width: 100%;
+         }
+         .boton {
+            margin-left: auto;
+            margin-right: 20px;
+
+         }
+         #menu {
+            /* margin: 100%; */
+            display: none;
+         }
+      }
 
 /* ---------------------------------------------------------------------
    5. BOTONES Y ETIQUETAS
@@ -143,69 +165,360 @@ header {
    redondeados (1.25rem) y sombra; botones separados con gap.
    --------------------------------------------------------------------- */
 
+
+
+
+
 #inicio {
    padding: 40px;
-   h1{
-      /* background-color: black; */
-      font-size: 60px;
+
+   /* justify-content: center; */
+   .hero-container1 {
+      /* background-color: red; */
+      /* justify-content: center; */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 85vh;
+      padding: 8vh;
    }
+
+   h1 {
+      /* background-color: black; */
+      font-size: 90px;
+   }
+
    img {
-      width: 100vh;
+      width: 80vh;
       border-radius: 11px;
    }
-   .hero-links{
+
+   .hero-links {
       margin-top: 30px;
    }
-   a{
+
+   a {
       text-decoration: none;
       border: 3px var(--color-principal) solid;
       padding: 17px;
       /* margin-top: 50px; */
       border-radius: 30px;
+   }
+
+}
+@media screen and (width<950px) {
+   #inicio {
+      /* background-color: red; */
+      padding: 32px 12px;
+
+      .container-fluid {
+         padding: 0%;
+
+         img {
+            width: 100%;
+            height: auto;
+         }
+      }
+
+      .hero-container1 {
+         /* background-color: blue; */
+         width: auto;
+         padding: 0%;
+
+         p {
+            color: var(--color-principal);
+            /* background-color: red; */
+            width: 100%;
+         }
+
+         h1 {
+            /* background-color: red; */
+            font-size: 30px;
+         }
+      }
+
+      .hero-links {
+         /* background-color: red; */
+         display: flex;
+         flex-direction: column;
+
+         a {
+            margin-top: 1vh;
+         }
+      }
+      img{
+         padding-top: 11%;
+      }
+   }
+
+}
+
+
+#ventajas {
+
+   background-color: var(--color-fondo-suave);
+   height: 50vh;
+
+   h2 {
+      /* background-color: red; */
+      text-align: center;
 
 
    }
 
+   .ventajas-contenedor {
+      background-color: var(--color-blanco);
+      /* border: 1px black solid; */
+      padding: 30px;
+      border-radius: 20px;
+
+      img {
+         background-color: var(--color-fondo-suave);
+         border-radius: 8px;
+         padding: 8px;
+         width: 50px;
+      }
+
+      h3 {
+         /* background-color: red; */
+         padding-top: 13px;
+      }
+   }
+}
+@media screen and (width<950px) {
+   #ventajas{
+      height: 100%;
+      /* background-color: red; */
+   }
+}
+
+.nuestros-espacios-contenedor {
+   height: 115vh;
+   /* background-color: purple; */
 }
 
 #espacios {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
+   justify-content: center;
    gap: 40px 30px;
 
    .jornada {
+      /* background-color: blue; */
+      width: 45vh;
+
+      .espacios-texto {
+         text-align: left;
+      }
+
       img {
-         width: 50vh;
+         height: 30vh;
+         width: 45vh;
+         border-radius: 20px 20px 0 0;
       }
    }
 }
 
-#ventajas{
-   background-color: var(--color-fondo-suave);
-   height: 50vh;
-   
-   h2{
+.nuestros-espacios {
+   /* background-color: red; */
+   text-align: center;
+}
+
+.nuestros-espacios>p {
+   /* background-color: black; */
+   height: 50px;
+}
+@media screen and (width<950px) {
+   .nuestros-espacios-contenedor{
       /* background-color: red; */
-      text-align: center;
-      
+      height: auto;
 
    }
-   .ventajas-contenedor{
+   #espacios{
+      align-items: center;
+      /* background-color: blue; */
+      display: flex;
+      flex-direction: column;
+   }
+}
+
+#planes {
+   /* background-color: red; */
+   text-align: center;
+   height: 45vh;
+
+   h2 {
+      /* background-color: blue; */
+      height: 10vh;
+   }
+
+   .planes-contenedores {
       background-color: var(--color-blanco);
-      /* border: 1px black solid; */
       padding: 30px;
-      border-radius: 20px;
-      img{
-         background-color: var(--color-fondo-suave);
-         border-radius: 8px;
-         padding: 8px;
-         width:  50px;
-      }
-      h3{
-         /* background-color: red; */
-         padding-top: 13px;
+
+      .planes-contenedor {
+         /* background-color: blue; */
+         width: 40vh;
+
+         h3 {
+            font-weight: bold;
+            font-size: 20px;
+         }
+
+         p {
+            height: 60px;
+         }
+
+         a {
+            text-decoration: none;
+            border: 2px var(--color-principal) solid;
+            color: var(--color-principal);
+            border-radius: 30px;
+            padding: 17px 100px;
+            /* width: 70vh; */
+         }
       }
    }
+}
+@media screen and (width<950px) {
+   #planes{
+      height: auto;
+      /* background-color: blue; */
+      .container-planes{
+         margin-top: 12%;
+         /* background-color: blue; */
+         .planes-contenedores{
+            max-width: 100%;
+            height: 115vh;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            /* background-color: red; */
+            .planes-contenedor{
+               /* background-color: #14213D; */
+               margin-top: 12%;
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+            }
+         }
+      }
+   }
+
+}
+
+#testimonios {
+   text-align: center;
+   /* background-color: red; */
+   height: 50vh;
+
+   h2 {
+      /* background-color: blue; */
+      height: 100px;
+   }
+
+   .testimonios-figure {
+      /* background-color: blue; */
+      text-align: left;
+
+      blockquote {
+         /* background-color: red; */
+         font-style: italic;
+         font-size: 20px;
+      }
+
+      img {
+         height: 60px;
+         border-radius: 50px;
+      }
+
+      figcaption {
+         display: flex;
+         gap: 13px;
+      }
+   }
+}
+@media screen and (width<950px) {
+   #testimonios{
+      height: auto;
+      /* background-color: red; */
+      .container-testimonios{
+         height: auto;
+         h2{
+            height: 0%;
+         }
+      }
+      .testimonios-contenedores{
+         height: auto;
+         /* background-color: blue; */
+         display: flex;
+         padding: 13%;
+         .testimonios-contenedor{
+            height: 23vh;
+            /* gap: 50% 50%; */
+         }
+      }
+   }
+
+}
+
+#contacto {
+   height: 30vh;
+   justify-content: center;
+   background-color: #0C1424;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   .contacto-informacion>img {
+      background-color: var(--color-blanco);
+      border-radius: 13px;
+      padding: 8px;
+      margin: 2vh;
+   }
+
+   h4 {
+      color: var(--color-acento);
+   }
+
+   a {
+      color: var(--color-blanco);
+      text-decoration: none;
+      font-size: 15px;
+   }
+
+   ul {
+      list-style: none;
+   }
+
+   .contacto-informacion-links {
+      /* background-color: red; */
+      width: 30vh;
+   }
+
+   p {
+      height: 50px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      /* background-color: red; */
+      border-top: 1px var(--color-texto-suave) solid;
+      color: var(--color-fondo-suave);
+   }
+}
+@media screen and (width<950px) {
+   #contacto{
+      height: auto;
+      width: 100%;
+      .contacto-informacion-links{
+         width: 50%;
+         display: flex;
+         flex-direction: column;
+         /* background-color: red; */
+      }
+   }
+
 }
 
 /* ---------------------------------------------------------------------
