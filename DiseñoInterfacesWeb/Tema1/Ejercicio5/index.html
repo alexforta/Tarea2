@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            a{
+                text-decoration: none;
+            }
+            body{
+                font-family: "system-ui";
+            }
+            header{
+                display: flex;
+                box-shadow: 0 10px 10px;
+                .barra{
+                    /* display: flex; */
+                    justify-content: flex-end;
+
+                    margin-left: auto;
+                    button{
+                        order: 1;
+                        display: none;
+                        @media screen and (width<960px){
+                            display: block;
+                            margin-left: auto;
+                        }
+                    }
+                    a{
+                        margin-left: auto;
+                        @media screen and (width<960px) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header id="header">
+            <div class="logo">
+                <a href="">LOGO</a>
+            </div>
+            
+            <div class="barra">
+                <div class="nav">
+                    <button>&#9776;</button>
+                    <a href>caja1</a>
+                    <a href>caja2</a>
+                    <a href>caja3</a>
+                    <a href>caja4</a>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>

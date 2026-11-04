@@ -82,73 +82,48 @@ h1 {
    Pista: Bootstrap pone "block-size: 0" en .collapse cerrado; en
    escritorio hay que anularlo.
    --------------------------------------------------------------------- */
-header {
-   /* background-color: var(--color-fondo-suave); */
-   /* background-color: red; */
-   max-width: 80%;
-   margin: auto;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+#header {
+   position: sticky;
+   top: 0;
+   z-index: 9999;
+   box-shadow: 0 2px 10px var(--color-sombra);
+   background: var(--color-blanco);
 
-   .nav-header {
-      display: flex;
-      align-items: center;
-      width: 100%;
+   nav {
+      background: var(--color-blanco);
 
-      a{
-         padding-left: 3%;
-      }
-      .boton {
-         margin-left: auto;
+      .navbar-brand>img {
+         height: 40px;
       }
 
+      button {
+         box-shadow: none;
+         border: none;
 
-
-      #menu {
-         margin-left: auto;
-         margin-right: 1%;
-      }
-
-      #menu ul {
-         display: flex;
-         gap: 12px;
-         /* text-decoration: none; */
-         list-style: none;
-
-         a {
-            text-decoration: none;
-            /* background-color: red; */
-
+         span {
+            filter: brightness(0);
          }
       }
    }
+
+   #menu {
+      a {
+         font-weight: bold;
+         color: var(--color-oscuro);
+
+         &:hover {
+            color: var(--color-principal);
+         }
+      }
+
+      @media screen and (width>=768px) {
+         block-size: auto;
+         display: block;
+         overflow: visible;
+      }
+   }
+
 }
-@media screen and (width>950px) {
-         .boton {
-            display: none;
-         }
-
-         header {
-            max-width: 100%;
-         }
-      }
-
-      @media screen and (width<950px) {
-         header{
-            max-width: 100%;
-         }
-         .boton {
-            margin-left: auto;
-            margin-right: 20px;
-
-         }
-         #menu {
-            /* margin: 100%; */
-            display: none;
-         }
-      }
-
 /* ---------------------------------------------------------------------
    5. BOTONES Y ETIQUETAS
    TODO: botón redondeado (border-radius: 999px) con tres variantes:
@@ -165,91 +140,26 @@ header {
    redondeados (1.25rem) y sombra; botones separados con gap.
    --------------------------------------------------------------------- */
 
-
+.jornada{
+   article>img{
+      border-radius: 20px 20px 0 0 ;
+      /* background-color: red; */
+   }
+}
 
 
 
 #inicio {
-   padding: 40px;
+   
 
-   /* justify-content: center; */
-   .hero-container1 {
-      /* background-color: red; */
-      /* justify-content: center; */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 85vh;
-      padding: 8vh;
-   }
-
-   h1 {
-      /* background-color: black; */
-      font-size: 90px;
-   }
+  
 
    img {
-      width: 80vh;
+      width: 100%;
       border-radius: 11px;
    }
 
-   .hero-links {
-      margin-top: 30px;
-   }
-
-   a {
-      text-decoration: none;
-      border: 3px var(--color-principal) solid;
-      padding: 17px;
-      /* margin-top: 50px; */
-      border-radius: 30px;
-   }
-
-}
-@media screen and (width<950px) {
-   #inicio {
-      /* background-color: red; */
-      padding: 32px 12px;
-
-      .container-fluid {
-         padding: 0%;
-
-         img {
-            width: 100%;
-            height: auto;
-         }
-      }
-
-      .hero-container1 {
-         /* background-color: blue; */
-         width: auto;
-         padding: 0%;
-
-         p {
-            color: var(--color-principal);
-            /* background-color: red; */
-            width: 100%;
-         }
-
-         h1 {
-            /* background-color: red; */
-            font-size: 30px;
-         }
-      }
-
-      .hero-links {
-         /* background-color: red; */
-         display: flex;
-         flex-direction: column;
-
-         a {
-            margin-top: 1vh;
-         }
-      }
-      img{
-         padding-top: 11%;
-      }
-   }
+   
 
 }
 
@@ -292,234 +202,32 @@ header {
    }
 }
 
-.nuestros-espacios-contenedor {
-   height: 115vh;
-   /* background-color: purple; */
-}
-
-#espacios {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   justify-content: center;
-   gap: 40px 30px;
-
-   .jornada {
-      /* background-color: blue; */
-      width: 45vh;
-
-      .espacios-texto {
-         text-align: left;
-      }
-
-      img {
-         height: 30vh;
-         width: 45vh;
-         border-radius: 20px 20px 0 0;
-      }
+.jornada{
+   article>img{
+      max-width: 100%;
    }
 }
 
-.nuestros-espacios {
-   /* background-color: red; */
-   text-align: center;
-}
-
-.nuestros-espacios>p {
-   /* background-color: black; */
-   height: 50px;
-}
-@media screen and (width<950px) {
-   .nuestros-espacios-contenedor{
+.planes-contenedores{
+   div>article{
       /* background-color: red; */
-      height: auto;
-
+      text-align: center;
    }
-   #espacios{
-      align-items: center;
-      /* background-color: blue; */
+}
+
+.testimonios-figure{
+   /* background-color: red; */
+   figcaption{
       display: flex;
-      flex-direction: column;
+   }
+   figcaption>img{
+      width: 50px;
+      margin-right: 12px;
+      border-radius: 50px;
    }
 }
 
-#planes {
-   /* background-color: red; */
-   text-align: center;
-   height: 45vh;
 
-   h2 {
-      /* background-color: blue; */
-      height: 10vh;
-   }
-
-   .planes-contenedores {
-      background-color: var(--color-blanco);
-      padding: 30px;
-
-      .planes-contenedor {
-         /* background-color: blue; */
-         width: 40vh;
-
-         h3 {
-            font-weight: bold;
-            font-size: 20px;
-         }
-
-         p {
-            height: 60px;
-         }
-
-         a {
-            text-decoration: none;
-            border: 2px var(--color-principal) solid;
-            color: var(--color-principal);
-            border-radius: 30px;
-            padding: 17px 100px;
-            /* width: 70vh; */
-         }
-      }
-   }
-}
-@media screen and (width<950px) {
-   #planes{
-      height: auto;
-      /* background-color: blue; */
-      .container-planes{
-         margin-top: 12%;
-         /* background-color: blue; */
-         .planes-contenedores{
-            max-width: 100%;
-            height: 115vh;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            flex-direction: column;
-            /* background-color: red; */
-            .planes-contenedor{
-               /* background-color: #14213D; */
-               margin-top: 12%;
-               display: flex;
-               flex-direction: column;
-               align-items: center;
-            }
-         }
-      }
-   }
-
-}
-
-#testimonios {
-   text-align: center;
-   /* background-color: red; */
-   height: 50vh;
-
-   h2 {
-      /* background-color: blue; */
-      height: 100px;
-   }
-
-   .testimonios-figure {
-      /* background-color: blue; */
-      text-align: left;
-
-      blockquote {
-         /* background-color: red; */
-         font-style: italic;
-         font-size: 20px;
-      }
-
-      img {
-         height: 60px;
-         border-radius: 50px;
-      }
-
-      figcaption {
-         display: flex;
-         gap: 13px;
-      }
-   }
-}
-@media screen and (width<950px) {
-   #testimonios{
-      height: auto;
-      /* background-color: red; */
-      .container-testimonios{
-         height: auto;
-         h2{
-            height: 0%;
-         }
-      }
-      .testimonios-contenedores{
-         height: auto;
-         /* background-color: blue; */
-         display: flex;
-         padding: 13%;
-         .testimonios-contenedor{
-            height: 23vh;
-            /* gap: 50% 50%; */
-         }
-      }
-   }
-
-}
-
-#contacto {
-   height: 30vh;
-   justify-content: center;
-   background-color: #0C1424;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-
-   .contacto-informacion>img {
-      background-color: var(--color-blanco);
-      border-radius: 13px;
-      padding: 8px;
-      margin: 2vh;
-   }
-
-   h4 {
-      color: var(--color-acento);
-   }
-
-   a {
-      color: var(--color-blanco);
-      text-decoration: none;
-      font-size: 15px;
-   }
-
-   ul {
-      list-style: none;
-   }
-
-   .contacto-informacion-links {
-      /* background-color: red; */
-      width: 30vh;
-   }
-
-   p {
-      height: 50px;
-      display: flex;
-      align-items: end;
-      justify-content: center;
-      /* background-color: red; */
-      border-top: 1px var(--color-texto-suave) solid;
-      color: var(--color-fondo-suave);
-   }
-}
-@media screen and (width<950px) {
-   #contacto{
-      height: auto;
-      width: 100%;
-      .contacto-informacion-links{
-         width: 50%;
-         display: flex;
-         flex-direction: column;
-         /* background-color: red; */
-      }
-   }
-
-}
 
 /* ---------------------------------------------------------------------
    7. SECCIONES
