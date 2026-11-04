@@ -8,5 +8,4 @@ abstract class Envio { /* TODO: constructor con peso positivo y calcularPrecio a
             
     //     }
     // }
-    public abstract calcularPrecio(): float{}
 }
