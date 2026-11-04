@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <style>
+        body{
+            height: 100vh;
+            align-content: center;
+            perspective: 500px;
+        }
+        div{
+            
+        }
+        .cajas{
+            width: 300px;
+            height: 500px;
+            background-color: red;
+            margin: auto;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 1s;
+            &:hover{
+                    /* transform: rotateY(180deg); */
+                    
+                }
+            /* justify-content: center; */
+            div{
+                text-align: center;
+                align-content: center;
+                inset: 0;
+                position: absolute;
+                font-size: 8rem;
+                
+            }
+            .cajaA{
+                z-index: 1;
+                backface-visibility: hidden;
+                background-color: blue;
+            }
+            .cajaB{
+                transform: rotateY(180deg);
+                background-color: purple;
+                background: url(IMG-20261104-WA0008.jpg) no-repeat center center / cover;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <div class="cajas">
+            <div class="cajaA">A</div>
+            <div class="cajaB"></div>
+        </div>
+        <h1 class="animate__animated animate__pulse animate__infinite">holas</h1>
+    </body>
+</html>
