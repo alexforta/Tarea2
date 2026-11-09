@@ -19,10 +19,19 @@ function obtenerUsuariosDemo(): array
 function autenticar(string $email, string $clave): ?string
 {
     $cuentas = obtenerUsuariosDemo();
+    //strtolower => Combierte el correo a minusculas
+    //trim => Elimina los espacios al inicio y al final
     $email = strtolower(trim($email));
+    /**
+     * Si el email no existe en el array de cuentas devuelve null
+     */
     if (!isset($cuentas[$email])) {
         return null;
     }
+    /**
+     * password_verify => Comprueba que la clave que se ha pasado coincida con el has generado automaticamente
+     * Si no coincide devuelve return
+     */
     if (!password_verify($clave, $cuentas[$email]['hash'])) {
         return null;
     }

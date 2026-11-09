@@ -6,6 +6,8 @@ if (!isset($_SESSION['nombre'])) {
     header('Location: login.php');
     exit;
 }
+
+//Muestra el nombre del usuario y un boton para cerrar sesion
 $nombre = htmlspecialchars((string) $_SESSION['nombre'], ENT_QUOTES, 'UTF-8');
 ?>
 <!doctype html>
