@@ -25,7 +25,7 @@ $_SESSION['revisadas'] = [];
         <p><?= htmlspecialchars($incidencia['descripcion'], ENT_QUOTES, 'UTF-8') ?></p>
         <?php if (!in_array($id, $_SESSION['revisadas'])): ?>
             <form action="revisar.php" method="post">
-                <button type="submit">Revisar incidencia</button>
+                <button type="submit">Marcar como revisada</button>
             </form>
         <?php endif; ?>
     <?php endforeach; ?>
