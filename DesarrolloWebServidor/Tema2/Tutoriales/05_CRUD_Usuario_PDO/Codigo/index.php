@@ -14,12 +14,17 @@ try {
     $repo = new UsuarioRepositorio(conectar());
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //Comprueba la accion pulsada en el formulario
         $accion = (string) ($_POST['accion'] ?? '');
+        //Compueba que el numero enviado en el formulario sea mayor o igual a 1
         $id = filter_var(
             $_POST['id'] ?? null,
             FILTER_VALIDATE_INT,
             ['options' => ['min_range' => 1]]
         );
+        /**
+         * Comprueba lo que llega de la variable accion y ejecuta segun lo que se le ha pedido su funcion
+         */
         if ($accion === 'crear') {
             $repo->crear(
                 (string) ($_POST['email'] ?? ''),
