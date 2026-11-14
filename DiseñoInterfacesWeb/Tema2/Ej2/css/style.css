@@ -62,7 +62,7 @@ img {
         margin-bottom: 30px;
 
         a {
-
+            color: black;
             text-decoration: none;
 
             &:first-child::after {
@@ -155,4 +155,27 @@ img {
             }
         }
     }
+}
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-top: 30vh;
+
+    .suscribe>div {
+        display: grid;
+        align-items: end;
+        height: 7vh;
+        /* background-color: aqua; */
+
+    }
+
+    .suscribe>div>p {
+        margin: 0;
+        text-align: end;
+    }
+}
+
+footer>div>p {
+    color: rgb(164, 161, 161);
 }
