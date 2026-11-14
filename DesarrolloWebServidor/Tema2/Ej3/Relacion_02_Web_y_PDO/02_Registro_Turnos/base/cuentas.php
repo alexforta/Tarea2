@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 // Cuentas disponibles para el ejercicio. No modificar los hashes.
 function obtenerCuentas(): array
