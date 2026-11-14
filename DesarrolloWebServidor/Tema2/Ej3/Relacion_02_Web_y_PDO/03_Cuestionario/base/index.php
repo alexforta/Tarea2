@@ -10,18 +10,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Guardo alias
     $alias = trim((string) ($_POST['alias'] ?? ''));
 
+
     if (strlen($alias) < 2 || strlen($alias) > 30) {
         $error = "El alias esta mal";
     }
 
     //Guardo el indice de la pregunta que toca y los aciertos en la sesion
-    if ($alias !== null) {
+    if ($error === '') {
         $_SESSION['cuestionario'] = [
             'alias' => $alias,
             'indice' => 0,
             'aciertos' => 0,
         ];
-        header('Location: panel.php');
+        header('Location: index.php');
         exit();
     }
 }
@@ -36,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+    <h1>Cuestionario por sesiones</h1>
     <!-- Alias -->
     <?php if ($error !== ''): ?>
         <p><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></p>
@@ -47,11 +49,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </label>
             <button type="submit">Comenzar</button>
         </form>
+    <?php else: ?>
+        <h2>Bienvenido, <?= $_SESSION['cuestionario']['alias'] ?></h2>
+        <!-- Guardo el indice y la pregunta -->
+        <?php
+        $numeroIndice = $_SESSION['cuestionario']['indice'];
+        $pregunta = $preguntas[$numeroIndice];
+        ?>
+        <p><?= htmlspecialchars($pregunta['texto'], ENT_QUOTES, 'UTF-8') ?></p>
+        
     <?php endif; ?>
 
-    <h1>Cuestionario por sesiones</h1>
+
     <!-- TODO: formularios y vista adecuados al estado -->
-    
+
 </body>
 
 </html>
