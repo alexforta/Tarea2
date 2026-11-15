@@ -5,3 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 // TODO: iniciar sesión, eliminar solo el estado del cuestionario y redirigir.
 session_start();
+unset($_SESSION['cuestionario']);
+header('Location: index.php');
+    exit;
