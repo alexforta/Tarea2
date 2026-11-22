@@ -17,8 +17,12 @@ try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //Comprueba la accion pulsada en el formulario
         $accion = (string) ($_POST['accion'] ?? '');
-        //Compueba que el numero enviado en el formulario sea mayor o igual a 1
-
+         //Compueba que el numero enviado en el formulario sea mayor o igual a 1
+        $id = filter_var(
+            $_POST['id'] ?? null,
+            FILTER_VALIDATE_INT,
+            ['options' => ['min_range' => 1]]
+        );
         /**
          * Comprueba lo que llega de la variable accion y ejecuta segun lo que se le ha pedido su funcion
          */
@@ -27,6 +31,8 @@ try {
                 (string) ($_POST['nombre'] ?? ''),
                 (int) ($_POST['unidades'] ?? '')
             );
+        }elseif ($accion === 'actualizarUnidades' && $id !== false) {
+            $repo->actualizarUnidades($id, (int) ($_POST['unidades'] ?? ''));
         }
         header('Location: index.php');
         exit;
@@ -71,6 +77,13 @@ try {
             <li>
                 <?= h($equipo['nombre']) ?>
                 <?= $equipo['unidades'] ?>
+
+                <form action="index.php" method="post" style="display:inline">
+                    <input type="hidden" name="accion" value="actualizarUnidades">
+                    <input type="hidden" name="id" value="<?= (int) $equipo['id'] ?>">
+                    <input name="unidades" value="<?= $equipo['unidades'] ?>" required>
+                    <button type="submit">Cambiar unidades</button>
+                </form>
             </li>
         <?php endforeach; ?>
     </ul>
