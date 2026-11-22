@@ -32,7 +32,11 @@ try {
                 (int) ($_POST['unidades'] ?? '')
             );
         }elseif ($accion === 'actualizarUnidades' && $id !== false) {
-            $repo->actualizarUnidades($id, (int) ($_POST['unidades'] ?? ''));
+            $repo->actualizarUnidades($id, (int) ($_POST['unidades'] ?? 0));
+        }elseif ($accion === 'eliminar' && $id !== false) {
+            $repo->eliminar($id);
+        } else {
+            throw new InvalidArgumentException('Acción no válida.');
         }
         header('Location: index.php');
         exit;
@@ -75,6 +79,7 @@ try {
     <ul>
         <?php foreach ($equipos as $equipo): ?>
             <li>
+                <?= $equipo['id'] ?>
                 <?= h($equipo['nombre']) ?>
                 <?= $equipo['unidades'] ?>
 
@@ -83,6 +88,11 @@ try {
                     <input type="hidden" name="id" value="<?= (int) $equipo['id'] ?>">
                     <input name="unidades" value="<?= $equipo['unidades'] ?>" required>
                     <button type="submit">Cambiar unidades</button>
+                </form>
+                <form action="index.php" method="post" style="display:inline">
+                    <input type="hidden" name="accion" value="eliminar">
+                    <input type="hidden" name="id" value="<?= (int) $equipo['id'] ?>">
+                    <button type="submit">Borrar</button>
                 </form>
             </li>
         <?php endforeach; ?>

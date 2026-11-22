@@ -9,7 +9,7 @@ class EquipoRepositorio
     {
         // Recupera los equipos en orden alfabético.
         return $this->pdo
-            ->query('SELECT nombre, unidades FROM equipo ORDER BY id DESC')
+            ->query('SELECT id, nombre, unidades FROM equipo ORDER BY id DESC')
             ->fetchAll();
     }
 
@@ -33,10 +33,25 @@ class EquipoRepositorio
     public function actualizarUnidades(int $id, int $unidades): void
     {
         // Comprueba el equipo y actualiza las unidades.
+        //Comprobacion datos validos
+        if ($id < 1 || $unidades <= 0 ) {
+            throw new InvalidArgumentException('Id o numero no válido.');
+        }
+        //Prepara la consulta para el cambio en la base de datos
+        $sentencia = $this->pdo->prepare('UPDATE equipo SET unidades = ? WHERE id = ?');
+        //Ejecuta esa conulta
+        $sentencia->execute([$unidades, $id]);
     }
 
     public function eliminar(int $id): void
     {
         // Comprueba el equipo y elimínalo.
+        if ($id < 1) {
+            throw new InvalidArgumentException('Id no válido.');
+        }
+        //Prepara la consulta para la insercion en la base de datos 
+        $sentencia = $this->pdo->prepare('DELETE FROM equipo WHERE id = ?');
+        //Ejecucion de la consulta
+        $sentencia->execute([$id]);
     }
 }
