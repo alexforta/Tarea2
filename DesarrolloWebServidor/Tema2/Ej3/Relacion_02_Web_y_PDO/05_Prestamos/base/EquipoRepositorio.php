@@ -4,7 +4,10 @@ class EquipoRepositorio {
     public function __construct(private PDO $pdo) {}
     public function listarEquipos(): array {
         // TODO: SELECT y disponibilidad agregada.
-        throw new LogicException('Pendiente de implementar');
+        // Recupera los equipos en orden alfabético.
+        return $this->pdo
+            ->query('SELECT id, nombre, unidades FROM equipo ORDER BY id DESC')
+            ->fetchAll();
     }
     public function listarPrestamos(): array {
         // TODO: JOIN y orden de préstamos.
