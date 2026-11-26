@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.card{
+    @apply border-1 border-gray-300 rounded-2xl p-5 my-6 ;
+}
+.icono{
+    @apply bg-blue-50 rounded-2xl my-2; 
+}
+.h3{
+    @apply font-bold my-2; 
+}
+.p{
+    @apply max-w-[30vh]; 
+}

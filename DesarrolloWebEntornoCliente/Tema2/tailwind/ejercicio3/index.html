@@ -1,11 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="src/output.css">
+    </head>
+    <body>
+        <header
+            class="flex justify-between px-10 py-6 items-center bg-slate-900">
+            <div>
+                <img src="assets/logo-claro.svg" alt class="w-20">
+                <img src="assets/logo-oscuro.svg" alt class="w-20">
+            </div>
+            <nav class="space-x-3 font-medium text-white">
+                <a href>Servicios</a>
+                <a href>Cómo funciona</a>
+                <a href class="bg-amber-300 p-3 rounded-3xl text-slate-900">Pide
+                    Cita</a>
+            </nav>
+        </header>
+        <main>
+            <section class=" min-h-screen px-9 pt-15 md:px-[10vh]">
+                <div class="md:grid md:grid-cols-2">
+                    <div class="md:max-w-[70%] md:flex md:flex-col md:justify-center">
+                        <p
+                            class="text-blue-600 font-bold bg-blue-200 rounded-2xl w-[36vh] px-4 py-1 md:min-w-[55%]">Taller
+                            abierto de lunes a sábado</p>
+                        <h1 class="text-5xl py-5 font-bold ">Tu bici, a punto
+                            para
+                            la ciudad</h1>
+                        <p class="text-xl w-[70%] py-5 text-gray-600">Reparamos,
+                            montamos y
+                            alquilamos bicicletas urbanas. Te decimos el precio
+                            antes de tocar nada.</p>
+                        <div class="flex flex-col md:flex-row md:gap-[12px]">
+                            <a href
+                                class="bg-blue-700 rounded-2xl  px-5 py-3 my-4 md:my-0 text-center text-amber-50 font-medium">Pide
+                                cita en el taller</a>
+                            <a href
+                                class="bg-amber-50 border-2 text-blue-700 border-blue-700 rounded-2xl font-medium text-center px-5 py-3 md:flex md:items-center md:my-0">Ver
+                                servicios</a>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="assets/hero-bici.svg" alt
+                            class="my-12 rounded-4xl">
+
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="min-h-screen px-9 pt-15 md:px-[10vh]">
+                    <div>
+                        <h2 class="text-5xl font-bold py-4">Lo que hacemos en el
+                            taller</h2>
+                        <p class="text-xl text-gray-600">Desde un pinchazo hasta
+                            una bici montada a tu medida</p>
+                    </div>
+                    <div class="md:grid md:grid-cols-3 md:gap-8">
+                        <div class="card">
+                            <img src="assets/icono-reparacion.svg" alt
+                                class="icono">
+                            <h3 class="h3">Reparación rápida</h3>
+                            <p class="p">Pinchazos, frenos y cambios. La
+                                mayoría, en el mismo dia</p>
+                            <p class="mt-4 text-blue-700 font-bold">Desde 8€</p>
+                        </div>
+                        <div class="card">
+                            <img src="assets/icono-revision.svg" alt
+                                class="icono">
+                            <h3 class="h3">Reparación rápida</h3>
+                            <p class="p">Pinchazos, frenos y cambios. La
+                                mayoría, en el mismo dia</p>
+                            <p class="mt-4 text-blue-700 font-bold">Desde 8€</p>
+                        </div>
+                        <div class="card">
+                            <img src="assets/icono-medida.svg" alt
+                                class="icono">
+                            <h3 class="h3">Reparación rápida</h3>
+                            <p class="p">Pinchazos, frenos y cambios. La
+                                mayoría, en el mismo dia</p>
+                            <p class="mt-4 text-blue-700 font-bold">Desde 8€</p>
+                        </div>
+                        <div class="card">
+                            <img src="assets/icono-electrica.svg" alt
+                                class="icono">
+                            <h3 class="h3">Reparación rápida</h3>
+                            <p class="p">Pinchazos, frenos y cambios. La
+                                mayoría, en el mismo dia</p>
+                            <p class="mt-4 text-blue-700 font-bold">Desde 8€</p>
+                        </div>
+                        <div class="card">
+                            <img src="assets/icono-alquiler.svg" alt
+                                class="icono">
+                            <h3 class="h3">Reparación rápida</h3>
+                            <p class="p">Pinchazos, frenos y cambios. La
+                                mayoría, en el mismo dia</p>
+                            <p class="mt-4 text-blue-700 font-bold">Desde 8€</p>
+                        </div>
+                        <div class="card">
+                            <img src="assets/icono-alquiler.svg" alt
+                                class="icono">
+                            <h3 class="h3">Reparación rápida</h3>
+                            <p class="p">Pinchazos, frenos y cambios. La
+                                mayoría, en el mismo dia</p>
+                            <p class="mt-4 text-blue-700 font-bold">Desde 8€</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="min-h-screen px-9 pt-15 bg-slate-900 md:px-[10vh]">
+                <h3 class="text-4xl font-bold py-4 text-white">Así de fácil</h3>
+                <div class="md:grid md:grid-cols-3">
+                    <div class="flex my-10 md:flex-col">
+                        <p
+                            class="bg-amber-200 p-4 rounded-4xl w-10 h-10 flex items-center font-bold mr-3">1</p>
+                        <div>
+                            <p class="font-bold my-2 text-white">Pides cita</p>
+                            <p class="text-gray-400">Rellena el formulario o
+                                llámano. Te damos hueco
+                                en 24 horas.</p>
+                        </div>
+                    </div>
+                    <div class="flex my-10 md:flex-col">
+                        <p
+                            class="bg-amber-200 p-4 rounded-4xl w-10 h-10 flex items-center font-bold mr-3">2</p>
+                        <div>
+                            <p class="font-bold my-2 text-white">Te damos
+                                presupuesto</p>
+                            <p class="text-gray-400">Rellena el formulario o
+                                llámano. Te damos hueco
+                                en 24 horas.</p>
+                        </div>
+                    </div>
+                    <div class="flex my-10 md:flex-col">
+                        <p
+                            class="bg-amber-200 p-4 rounded-4xl w-10 h-10 flex items-center font-bold mr-3">3</p>
+                        <div>
+                            <p class="font-bold my-2 text-white">Recoges y
+                                pedaleas</p>
+                            <p class="text-gray-400">Rellena el formulario o
+                                llámano. Te damos hueco
+                                en 24 horas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
 </html>
