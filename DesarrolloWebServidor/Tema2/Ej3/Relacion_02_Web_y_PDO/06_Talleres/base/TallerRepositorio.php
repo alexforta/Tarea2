@@ -1,21 +1,46 @@
 <?php
+
 declare(strict_types=1);
-class TallerRepositorio {
+
+class TallerRepositorio
+{
     public function __construct(private PDO $pdo) {}
-    public function listarTalleres(): array {
-        // TODO: aforo, plazas confirmadas y lista de espera.
-        throw new LogicException('Pendiente de implementar');
+
+    public function listarTalleres(): array
+    {
+        $talleres = $this->pdo->query(
+            'SELECT id, titulo, plazas FROM taller'
+        )->fetchAll();
+
+        $inscripcionesConfirmadas = $this->pdo->query(
+            'SELECT taller_id FROM inscripcion WHERE estado = "CONFIRMADA"'
+        )->fetchAll();
+        $resultado = [];
+
+        foreach ($talleres as &$taller) {
+            foreach ($inscripcionesConfirmadas as $inscripcion) {
+                # code...
+            }
+        }
+
+        return $talleres;
     }
-    public function listarInscripciones(): array {
-        // TODO: JOIN y orden del enunciado.
-        throw new LogicException('Pendiente de implementar');
+
+    public function listarInscripciones(): array
+    {
+        // Completa la consulta con INNER JOIN.
+        return [];
     }
-    public function inscribir(int $tallerId, string $nombre, string $email): string {
-        // TODO: transacción, bloqueo, comprobación de aforo e inserción.
-        throw new LogicException('Pendiente de implementar');
+
+    public function inscribir(int $tallerId, string $nombre, string $email): string
+    {
+        // Comprueba los datos y devuelve confirmada o espera.
+        return '';
     }
-    public function cancelar(int $inscripcionId): bool {
-        // TODO: transacción, cancelación y promoción al primer lugar de espera.
-        throw new LogicException('Pendiente de implementar');
+
+    public function cancelar(int $inscripcionId): bool
+    {
+        // Elimina la inscripción y, si procede, cubre la plaza libre.
+        return false;
     }
 }

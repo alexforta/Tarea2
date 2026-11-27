@@ -1,34 +1,32 @@
-# Ejercicio 6 · Talleres con lista de espera automática
+# Ejercicio 6 · Talleres y lista de espera
 
-**Objetivo.** Implementar una regla de negocio con aforo limitado, inscripciones duplicadas y promoción automática de personas en espera al cancelar.
+**Objetivo.** Desarrolla una aplicación de inscripciones a talleres. Cada taller tiene un número limitado de plazas y las personas restantes quedan en lista de espera.
 
 ## Preparación
 
-Ejecuta `base/schema.sql`: crea `ud2_talleres`, la tabla `taller(id,titulo,plazas)` y la tabla `inscripcion(id,taller_id,nombre,email,estado,creado)`. `estado` puede ser `confirmada` o `espera`; la pareja `(taller_id,email)` es única. Hay dos talleres precargados: uno con dos plazas y otro con tres.
+Importa schema.sql en phpMyAdmin. Se crearán ud2_talleres, la tabla taller(id, titulo, plazas) y la tabla inscripcion(id, taller_id, nombre, email, estado). estado puede ser confirmada o espera. El par taller_id/email no puede repetirse.
 
 ## Métodos requeridos
 
-| Método | Operación y devolución |
+| Método | Operación |
 |---|---|
-| `listarTalleres(): array` | Devuelve cada taller con `plazas`, `confirmadas` y `en_espera`, mediante SQL y ordenados por título. |
-| `listarInscripciones(): array` | Devuelve inscripciones junto al título del taller (`JOIN`), ordenadas por taller, confirmadas antes que espera e ID ascendente. |
-| `inscribir(int $tallerId, string $nombre, string $email): string` | Inscribe y devuelve exactamente `confirmada` o `espera`. |
-| `cancelar(int $inscripcionId): bool` | Cancela y, si estaba confirmada, promociona a la primera persona en espera del mismo taller. Devuelve `false` si no existe. |
+| `listarTalleres(): array` | Devuelve cada taller con sus plazas y el número de inscripciones confirmadas y en espera. Puedes recorrer los arrays recuperados con PDO para contar cada estado. |
+| `listarInscripciones(): array` | Devuelve las inscripciones mostrando el título del taller. Utiliza INNER JOIN entre inscripcion y taller y ordena por taller e ID. |
+| `inscribir(int $tallerId, string $nombre, string $email): string` | Comprueba los datos y los duplicados. Si quedan plazas, inserta la inscripción como confirmada; si no, como espera. Devuelve el estado asignado. |
+| `cancelar(int $inscripcionId): bool` | Elimina la inscripción indicada. Si era confirmada y había personas en espera para el mismo taller, cambia a confirmada la que tenga el ID más pequeño. Devuelve false si la inscripción no existía. |
 
 ## Requisitos
 
-1. Muestra por taller las plazas totales, confirmadas y personas en espera. Añade un formulario con taller, nombre (2 a 80 caracteres) y correo válido. Normaliza el correo a minúsculas y sin espacios extremos.
-2. Si hay plazas disponibles, inscribe con estado `confirmada`. Si el aforo está completo, guarda con estado `espera`. **No se rechaza** una inscripción solo por estar lleno.
-3. Impide dos inscripciones del mismo correo en un taller, incluso si la primera está en espera. El correo sí puede inscribirse en otro taller distinto.
-4. Muestra un listado con nombre, correo, taller, estado y botón **Cancelar** por `POST`.
-5. Al cancelar una persona confirmada, asciende a `confirmada` la persona en espera del mismo taller con **menor ID**. Cancelar a una persona en espera no asciende a nadie.
-6. `inscribir()` y `cancelar()` deben utilizar transacciones. Bloquea la fila del taller con `SELECT ... FOR UPDATE` antes de tomar decisiones sobre aforo. Para cancelar, identifica el taller, bloquéalo y vuelve a verificar la inscripción. El borrado y la posible promoción son **una sola operación atómica**.
-7. Utiliza la lógica transaccional para que nunca haya más personas confirmadas que plazas. La restricción `UNIQUE` de MySQL impide los duplicados por taller y correo. Evita mostrar mensajes SQL literales y redirige tras cada cambio válido.
+1. En index.php, muestra una tabla con el título del taller, sus plazas, las inscripciones confirmadas y las personas en espera.
+2. Crea un formulario con taller, nombre y correo electrónico. Comprueba que el nombre no está vacío y valida el correo con filter_var().
+3. No admitas dos inscripciones con el mismo correo en un mismo taller. Sí se puede utilizar ese correo en talleres distintos.
+4. Muestra las inscripciones en otra tabla con el título del taller obtenido mediante INNER JOIN, nombre, correo, estado y un botón Cancelar.
+5. Al cancelar una inscripción confirmada, asigna su plaza a la primera persona en espera (la de ID más pequeño). Si se cancela una inscripción en espera, las demás conservan su estado.
+6. Utiliza POST para inscribir y cancelar. Tras realizar un cambio válido, redirige al listado. Las consultas SQL estarán en TallerRepositorio.php y la presentación en index.php.
 
 ## Pruebas
 
-- En el taller de dos plazas, las dos primeras personas quedan confirmadas; la tercera y cuarta, en espera.
-- Si cancelas una de las dos confirmadas, asciende la **tercera**, no la cuarta.
-- Cancelar a la cuarta (en espera) no cambia las confirmadas.
-- El mismo correo no puede apuntarse dos veces al mismo taller, pero sí a otro taller.
-- Sin lista de espera, cancelar una confirmada deja una plaza libre para el siguiente registro.
+- En un taller de dos plazas, las dos primeras inscripciones quedan confirmadas y la tercera en espera.
+- Al cancelar a una persona confirmada, la tercera pasa a confirmada.
+- Cancelar a una persona en espera no altera el resto.
+- Un correo repetido en el mismo taller no genera una segunda inscripción.
