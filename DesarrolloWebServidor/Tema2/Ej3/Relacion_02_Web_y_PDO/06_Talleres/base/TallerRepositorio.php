@@ -15,12 +15,26 @@ class TallerRepositorio
         $inscripcionesConfirmadas = $this->pdo->query(
             'SELECT taller_id FROM inscripcion WHERE estado = "CONFIRMADA"'
         )->fetchAll();
-        $resultado = [];
+
+        $inscripcionesEspera = $this->pdo->query(
+            'SELECT taller_id FROM inscripcion WHERE estado = "ESPERA"'
+        )->fetchAll();
 
         foreach ($talleres as &$taller) {
+            $abiertos = 0;
+            $cerradas = 0;
             foreach ($inscripcionesConfirmadas as $inscripcion) {
-                # code...
+                if ((int) $inscripcion['taller_id'] == (int) $taller['id']) {
+                    $abiertos++;
+                }
             }
+            foreach ($inscripcionesEspera as $inscripcion) {
+                if ((int) $inscripcion['taller_id'] == (int) $taller['id']) {
+                    $cerradas++;
+                }
+            }
+            $taller['confirmadas'] = (int) $abiertos;
+            $taller['cerradas'] = (int) $cerradas;
         }
 
         return $talleres;
@@ -28,19 +42,31 @@ class TallerRepositorio
 
     public function listarInscripciones(): array
     {
-        // Completa la consulta con INNER JOIN.
-        return [];
+
+        $inscripciones = $this->pdo->query(
+            'SELECT i.id, t.titulo AS taller, i.nombre, i.email 
+            FROM inscripcion i INNER JOIN taller t ON i.taller_id = t.id
+            ORDER BY i.id DESC'
+
+        )->fetchAll();
+        return $inscripciones;
     }
 
     public function inscribir(int $tallerId, string $nombre, string $email): string
     {
-        // Comprueba los datos y devuelve confirmada o espera.
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO inscripcion (taller_id, nombre, email, estado) VALUES (?, ?, ?, "CONFIRMADA")'
+        );
+        $stmt->execute([$tallerId, $nombre, $email]);
         return '';
     }
 
     public function cancelar(int $inscripcionId): bool
     {
-        // Elimina la inscripción y, si procede, cubre la plaza libre.
-        return false;
+        $stmt = $this->pdo->prepare(
+            'DELETE FROM inscripcion WHERE id = ?'
+        );
+        $stmt->execute([$inscripcionId]);
+        return true;
     }
 }

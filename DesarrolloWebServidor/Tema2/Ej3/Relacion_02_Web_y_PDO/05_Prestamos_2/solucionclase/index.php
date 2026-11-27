@@ -71,6 +71,7 @@ $prestamos = $repo->listarPrestamos();
         <label>Persona <input name="persona" minlength="2" maxlength="80" required></label>
         <button type="submit">Prestar</button>
     </form>
+    
     <h2>Préstamos</h2>
     <table border="1">
         <tr>
